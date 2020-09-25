@@ -21,33 +21,10 @@ class admin extends CI_Controller
 		//init modal
 		$this->load->database();
 		$this->load->model('Mmain');
-			//check user access	
-		$isAll = $this->Mmain->qRead(
-										"tb_accfrm AS a INNER JOIN tb_frm AS b ON a.code_frm = b.code_frm 
-										WHERE a.id_acc ='".$this->session->userdata['accUser']."' AND b.id_frm='admin'",
-										"a.is_add as isadd,a.is_edt as isedt,a.is_del as isdel,a.is_spec1 as acc1,a.is_spec2 as acc2","");
-		//echo $isAll->num_rows();
-		if($isAll->num_rows()>0)
-		{
-			
-			if($this->session->userdata("codeUser") == "USR00006"  || $this->session->userdata("accUser") == "A12")
-			{
-				
-				$this->showDriver();
-			}
-			else
-			$this->show();
-		}
-		else
-		{
-			if($this->session->userdata("title") == "Driver" || $this->session->userdata("accUser") == "A12")
-			{
-				
-				$this->showDriver();
-			}
-			else
-			redirect("Profile","refresh");
-		}
+		
+		$this->fn->getheader();	
+		$this->fn->getfooter();
+
 	
 		
 	}

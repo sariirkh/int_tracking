@@ -73,38 +73,7 @@ class Commonfunction
 			$output['setting']=$this->CI->Mmain->qRead(
 											"tb_setting",
 											"","");
-			$output['comments']=$this->CI->Mmain->qRead(
-										"
-										tb_comment AS a INNER JOIN 
-										tb_events AS b ON a.id_events = b.id_events 
-										WHERE a.stat_comment =0 ",
-										"
-										a.id_comment as id,
-										b.title_events as tit,
-										a.date_comment as date,
-										a.time_comment as time,
-										a.nm_comment as nm,
-										a.content_comment as content,
-										a.email_comment as email,
-										a.stat_comment as st
-										
-										","");
-	
-			$output['events']=$this->CI->Mmain->qRead(
-										"
-										tb_events AS a INNER JOIN 
-										tb_emp AS b ON a.code_user = b.code_user
-										WHERE a.stat_events =0 ",
-										"
-										a.id_events as id,
-										a.title_events as tit,
-										a.date_events as date,
-										a.summary_events as content,
-										a.pic_events as pic,
-										b.nm_emp as nm,
-										a.stat_events as st
-										","");
-
+		
 	
 			$isadmin="";
 		$isAll = $this->CI->Mmain->qRead(
@@ -112,24 +81,7 @@ class Commonfunction
 										WHERE a.id_acc ='".$this->CI->session->userdata['accUser']."' AND a.code_frm='FR017' ",
 										"a.is_add as isadd,a.is_edt as isedt,a.is_del as isdel,a.is_spec1 as acc1,a.is_spec2 as acc2","");
 		
-		$access=$isAll->row();
-		//echo count($access);
-		//$output['isall']=$access->isadd;
-		$isAdmin="";
-		if($access->acc1<>1)
-			
-			$isAdmin=" AND (d.appr1_lobgroup = '".$this->CI->session->userdata("codeUser")."' OR d.appr2_lobgroup = '".$this->CI->session->userdata("codeUser")."')";
 		
-			$output['alert']=$this->CI->Mmain->qRead("	tb_lob a 
-														INNER JOIN tb_emp b ON b.code_user = a.code_user
-														INNER JOIN tb_user u ON b.code_user = u.code_user
-														INNER JOIN tb_detlobgroup c ON c.code_user = a.code_user
-														INNER JOIN tb_lobgroup d ON d.id_lobgroup = c.id_lobgroup
-														INNER JOIN tb_lobtype e ON e.id_lobtype = a.id_lobtype
-														WHERE a.stat_lob=0 
-														".$isAdmin."
-														","a.id_lob as id,e.desc_lobtype as rem,'Vacation' as link,b.nm_emp as nm,u.ava_user as ava,a.date0_lob as dt","");
-										
 			$output['ses']=$this->CI->session->all_userdata();
 			$output['frmList']=$this->CI->session->userdata('frmList');
 			$output['frmHead']=$this->CI->session->userdata('frmHead');

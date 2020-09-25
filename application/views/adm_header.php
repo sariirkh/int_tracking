@@ -100,76 +100,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 	
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-			<?php
-				//Leave request 
-			
-				$totalert=0;
-				foreach($alert->result() as $row)
-				{
-					$idAlert[]=$row->id;
-					$remAlert[]=$row->rem;
-					$linkAlert[]=$row->link;						
-					$nmAlert[]=$row->nm;						
-					$picAlert[]=$row->ava;						
-					$dtAlert[]=$row->dt;						
-				}
-				
-				if($alert->num_rows()>0)
-				{
-					$totalert=$alert->num_rows();
-				}
-				?>	
-				 
-			 
-			  
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-		   <?php
-			  if(!$totalert==0)
-			  {
-			  ?>
-					<span class="badge badge-danger navbar-badge"><?= $totalert?></span>
-			  <?php
-			  }
-			  ?>
-			  
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-			
-			
-		<?php
-		if(isset($idAlert))
-			for($i=0;$i<count($idAlert);$i++)
-			{
-			?>	
-			
-          <a href="<?= site_url();?><?= $linkAlert[$i];?>" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="<?php echo base_url();?>assets/admin/img/avatar/thumb/<?= $picAlert[$i]?>" alt="User Avatar" class="img-size-50-circle mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                 <?= $nmAlert[$i]?>
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm"><?= $remAlert[$i]?></p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> <?= $dtAlert[$i]?></p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-			
-			<?php
-			}
-		?>	
-					
-		  
-          <a href="#" class="dropdown-item dropdown-footer">See All Requests</a>
-        </div>
-      </li>
+  
 	  
       <!-- Notifications Dropdown Menu 
       <li class="nav-item dropdown">
@@ -244,7 +175,7 @@
 			
 			
 			
-			//echo $frmList;
+			//echo $frmList."cek";
 			$grptemp="";
 			if(isset($frmList))
 			{
