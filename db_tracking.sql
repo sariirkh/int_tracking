@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2020 at 05:12 AM
+-- Generation Time: Sep 25, 2020 at 05:19 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,51 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_tracking`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lokasi`
---
-
-CREATE TABLE `lokasi` (
-  `id_lokasi` int(11) NOT NULL,
-  `id_kendaraan` int(11) NOT NULL,
-  `nama_lokasi` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `lokasi`
---
-
-INSERT INTO `lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`) VALUES
-(1, 1, 'Mangli'),
-(12, 2, 'Jember'),
-(13, 3, 'Bangsal'),
-(14, 4, 'Tanggul');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `riwayat`
---
-
-CREATE TABLE `riwayat` (
-  `id_riwayat` int(11) NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `id_lokasi` int(11) NOT NULL,
-  `latitude_now` varchar(255) NOT NULL,
-  `longitude_now` varchar(255) NOT NULL,
-  `jarak_now` double NOT NULL,
-  `status` enum('di jalan','sudah sampai') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `riwayat`
---
-
-INSERT INTO `riwayat` (`id_riwayat`, `waktu`, `id_lokasi`, `latitude_now`, `longitude_now`, `jarak_now`, `status`) VALUES
-(1, '2020-09-24 06:39:27', 2, '5', '2', 4, 'di jalan');
 
 -- --------------------------------------------------------
 
@@ -90,6 +45,51 @@ INSERT INTO `tb_kendaraan` (`id_kendaraan`, `jenis_kendaraan`, `merk_kendaraan`,
 (2, 'mobil', 'toyota', 'P 4301 MD', 'Ella'),
 (3, 'mobil', 'toyota', 'P 2076 YT', 'Sari'),
 (4, 'mobil', 'toyota', 'P 5628 PT', 'Nando');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_lokasi`
+--
+
+CREATE TABLE `tb_lokasi` (
+  `id_lokasi` int(11) NOT NULL,
+  `id_kendaraan` int(11) NOT NULL,
+  `nama_lokasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_lokasi`
+--
+
+INSERT INTO `tb_lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`) VALUES
+(1, 1, 'Mangli'),
+(12, 2, 'Jember'),
+(13, 3, 'Bangsal'),
+(14, 4, 'Tanggul');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_riwayat`
+--
+
+CREATE TABLE `tb_riwayat` (
+  `id_riwayat` int(11) NOT NULL,
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_lokasi` int(11) NOT NULL,
+  `latitude_now` varchar(255) NOT NULL,
+  `longitude_now` varchar(255) NOT NULL,
+  `jarak_now` double NOT NULL,
+  `status` enum('di jalan','sudah sampai') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_riwayat`
+--
+
+INSERT INTO `tb_riwayat` (`id_riwayat`, `waktu`, `id_lokasi`, `latitude_now`, `longitude_now`, `jarak_now`, `status`) VALUES
+(1, '2020-09-24 06:39:27', 2, '5', '2', 4, 'di jalan');
 
 -- --------------------------------------------------------
 
@@ -120,16 +120,16 @@ INSERT INTO `tb_user` (`id_admin`, `nama_admin`, `user_admin`, `password`, `emai
 --
 
 --
--- Indexes for table `lokasi`
---
-ALTER TABLE `lokasi`
-  ADD PRIMARY KEY (`id_lokasi`);
-
---
 -- Indexes for table `tb_kendaraan`
 --
 ALTER TABLE `tb_kendaraan`
   ADD PRIMARY KEY (`id_kendaraan`);
+
+--
+-- Indexes for table `tb_lokasi`
+--
+ALTER TABLE `tb_lokasi`
+  ADD PRIMARY KEY (`id_lokasi`);
 
 --
 -- Indexes for table `tb_user`
@@ -142,16 +142,16 @@ ALTER TABLE `tb_user`
 --
 
 --
--- AUTO_INCREMENT for table `lokasi`
---
-ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
 -- AUTO_INCREMENT for table `tb_kendaraan`
 --
 ALTER TABLE `tb_kendaraan`
   MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_lokasi`
+--
+ALTER TABLE `tb_lokasi`
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
