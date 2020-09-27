@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pelamar extends CI_Controller 
+class Kendaraan extends CI_Controller 
 {
 	public function __construct()
 	{
@@ -15,52 +15,57 @@ class Pelamar extends CI_Controller
 		====================================================== Variable Declaration =========================================================
 	*/
 	
-	var $mainTable="id_pelamar";
-	var $mainPk="nama_pelamar";
-	var $viewLink="Pelamar";
-	var $breadcrumbTitle="Employees";
+	var $mainTable="tb_kendaraan";
+	var $mainPk="id_kendaraan";
+	var $viewLink="Kendaraan";
+	var $breadcrumbTitle="Daftar Kendaraan";
 	var $viewPage="Admviewpage";
 	var $addPage="Admaddpage";
 	
 	
 	//query
-	var $ordQuery=" ORDER BY id_pelamar DESC ";
+	var $ordQuery=" ORDER BY id_kendaraan DESC ";
 	var $tableQuery="
-						tb_pelamar
+						tb_kendaraan
 						";
 	var $fieldQuery="
-						id_pelamar
-						tb_pelamar
+	id_kendaraan,
+	jenis_kendaraan,
+	merk_kendaraan,
+	nomor_kendaraan,
+	pengguna_kendaraan
 						"; //leave blank to show all field
 						
-	var $primaryKey="id_pelamar";
-	var $updateKey="nama_pelamar";
+	var $primaryKey="id_kendaraan";
+	var $updateKey="id_kendaraan";
 	
 	//auto generate id
-	var $defaultId="BRG0001";
-	var $prefix="BRG";
+	var $defaultId="KDR0001";
+	var $prefix="KDR";
 	var $suffix="0001";	
 	
 	//view
-	var $viewFormTitle="Pelamar";
+	var $viewFormTitle="Daftar Kendaraan";
 	var $viewFormTableHeader=array(
-									"id_pelamar",
-									"nama_pelamar",
-									"TanggalLahir_pelamar",
-									"    "
-									"    "
-									"    "
+		"Id Kendaraan",
+		"Jenis Kendaraan",
+		"Merk Kendaraan",
+		"Nomor Kendaraan",
+		"Nama Pengguna"
 									);
 	
 	//save
-	var $saveFormTitle="Tambah Pelamar";
+	var $saveFormTitle="Tambah Kendaraan";
 	var $saveFormTableHeader=array(
-									"     "
-									"     "
+		"Id Kendaraan",
+		"Jenis Kendaraan",
+		"Merk Kendaraan",
+		"Nomor Kendaraan",
+		"Nama Pengguna"
 									);
 	
 	//update
-	var $editFormTitle="Edit User Data";
+	var $editFormTitle="Ubah Data Kendaraan";
 	
 	/*	
 		========================================================== General Function =========================================================
@@ -160,7 +165,7 @@ class Pelamar extends CI_Controller
 			$output['saveLink']=$this->viewLink."/update";
 			$pid=$isEdit;
 			
-						";
+						
 			$render=$this->Mmain->qRead($this->tableQuery,$this->fieldQuery,$This->mainPK."  = '".$isEdit."'");
 			foreach($render->result() as $row)
 			{
@@ -192,10 +197,12 @@ class Pelamar extends CI_Controller
 		
 		
 		$output['formTxt']=array(
-								"<input type='text' class='form-control' id='txtIdPelamar' name=txt[] value='".$txtVal[0]."' required readonly placeholder ",
-								"<input type='text' class='form-control' id='txtNamaPelamar' name=txt[] value='".$txtVal[1]."' required",
-								"<input type='text' class='form-control' id='txtTanggalLahirPelamar' name=txt[] value='".$txtVal[2]."' required",
-								);
+			"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 70 karakter' maxlength='70'>",
+			"<input type='text' class='form-control' id='txtJenisKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+			"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+			"<input type='text' class='form-control' id='txtNomorKendaraan' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+			"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>"
+			);
 		
 		
 		//load view
@@ -266,22 +273,22 @@ class Pelamar extends CI_Controller
 		$this->session->set_flashdata('successNotification', '2');
 		//redirect to form
 		redirect($this->viewLink,'refresh');		
-	}
+		}
 	
 	
 	//update record
-	public function Pin($id,$stat)
-	{
-		//retrieve values
+	// public function Pin($id,$stat)
+	// {
+	// 	//retrieve values
 		
 		
-		//save to database
-		$this->load->database();
-		$this->load->model('Mmain');
-		$this->Mmain->qUpdpart($this->mainTable,"id_emp",$id,Array("show_emp"),Array($stat));
+	// 	//save to database
+	// 	$this->load->database();
+	// 	$this->load->model('Mmain');
+	// 	$this->Mmain->qUpdpart($this->mainTable,"id_emp",$id,Array("show_emp"),Array($stat));
 		
-		//redirect to form
-		redirect($this->viewLink,'refresh');		
+	// 	//redirect to form
+	// 	redirect($this->viewLink,'refresh');		
 		
 	}
 }
