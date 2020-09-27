@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2020 at 10:58 AM
+-- Generation Time: Sep 27, 2020 at 04:27 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -64,9 +64,13 @@ CREATE TABLE `tb_accfrm` (
 --
 
 INSERT INTO `tb_accfrm` (`id_userfrm`, `id_acc`, `code_frm`, `is_add`, `is_edt`, `is_del`, `is_spec1`, `is_spec2`) VALUES
-('UF00001', 'A99', 'FR099', 1, 1, 1, 1, 1),
+('UF00001', 'A99', 'FRM09', 1, 1, 1, 1, 1),
 ('UF00002', 'A99', 'FR002', 1, 1, 1, 1, 1),
-('UF00003', 'A99', 'FR003', 1, 1, 1, 1, 1);
+('UF00003', 'A99', 'FR003', 1, 1, 1, 1, 1),
+('UF00004', 'A99', 'FR101', 1, 1, 1, 1, 1),
+('UF00005', 'A99', 'FR102', 1, 1, 1, 1, 1),
+('UF00006', 'A99', 'FR099', 1, 1, 1, 1, 1),
+('UF00007', 'A99', 'FR100', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +141,7 @@ CREATE TABLE `tb_emp` (
 --
 
 INSERT INTO `tb_emp` (`id_emp`, `nm_emp`, `nicknm_emp`, `altnm_emp`, `hon_emp`, `nik_emp`, `id_div`, `id_dept`, `about_emp`, `title_emp`, `pos_emp`, `site_emp`, `stw_emp`, `enw_emp`, `id_loc`, `sex_emp`, `bp_emp`, `bd_emp`, `phone_emp`, `ktp_emp`, `kk_emp`, `sn_emp`, `address_emp`, `marst_emp`, `rel_emp`, `eth_emp`, `edu_emp`, `maj_emp`, `uni_emp`, `blood_emp`, `sim_emp`, `passport_emp`, `npwp_emp`, `bpjs_emp`, `kpj_emp`, `email_emp`, `emailwork_emp`, `bank_emp`, `bankbranch_emp`, `bankacc_emp`, `ecn_emp`, `father_emp`, `mother_emp`, `spouse_emp`, `numchild_emp`, `numsibling_emp`, `workday_emp`, `worktime_emp`, `efin_emp`, `id_st_emp`, `acno_emp`, `id_tt`, `notes_emp`, `show_emp`, `code_user`) VALUES
-('E99901', 'Intern', 'Intern', 'Intern', NULL, NULL, 'DV01', 'DP01', '1', NULL, '', '', '2020-09-25', '2020-09-25', NULL, NULL, '', NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, 'ST01', 1, 'TT01', NULL, 1, 'USR99901');
+('E99901', 'Intern', 'Intern', 'Intern', NULL, NULL, 'DV01', 'DP01', '1', NULL, '', '', '2020-09-25', '2020-09-25', 'HQ1', NULL, '', NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, 'ST01', 1, 'TT01', NULL, 1, 'USR99901');
 
 -- --------------------------------------------------------
 
@@ -160,9 +164,12 @@ CREATE TABLE `tb_frm` (
 --
 
 INSERT INTO `tb_frm` (`code_frm`, `id_frm`, `desc_frm`, `id_frmgroup`, `is_shortcut`, `stat_frm`, `sort_order`) VALUES
-('FRM02', 'Form', 'Daftar Form', 'FG05', 1, 1, 1),
-('FRM03', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1),
-('FRM99', 'Barang', 'Form Barang', 'FG99', 1, 1, 1);
+('FR002', 'Form', 'Daftar Form', 'FG05', 1, 1, 1),
+('FR003', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1),
+('FR099', 'Barang', 'Form Barang', 'FG99', 1, 1, 1),
+('FR100', 'Pelamar', 'Form Pelamar', 'FG99', 0, 1, 1),
+('FR101', 'Access', 'Hak Akses', 'FG99', 0, 1, 1),
+('FR102', 'Useraccess', 'Hak Akses', 'FG99', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -328,7 +335,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`code_user`, `nm_user`, `pwd_user`, `id_acc`, `ava_user`, `jd_user`, `isonline_user`, `lastlogin_user`) VALUES
-('USR99901', 'intern', '$2y$12$UAkJdlTcMZVXYGmCtZ1xfegwnq7pj9EYJYBZ1yulkYPHukOaO3vIO', 'A99', 'def.jpg', '2020-09-25', 1, '2020-09-25 13:42:25');
+('USR99901', 'intern', '$2y$12$BVbeYKCw8WFhT7cQ55SGO.RjA//4/Xabg2pT5.fAQdroy3mavLk.y', 'A99', 'def.jpg', '2020-09-25', 1, '2020-09-25 13:42:25');
 
 --
 -- Indexes for dumped tables
