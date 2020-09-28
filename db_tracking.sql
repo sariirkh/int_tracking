@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2020 at 04:27 AM
+-- Generation Time: Sep 28, 2020 at 10:50 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -66,11 +66,12 @@ CREATE TABLE `tb_accfrm` (
 INSERT INTO `tb_accfrm` (`id_userfrm`, `id_acc`, `code_frm`, `is_add`, `is_edt`, `is_del`, `is_spec1`, `is_spec2`) VALUES
 ('UF00001', 'A99', 'FRM09', 1, 1, 1, 1, 1),
 ('UF00002', 'A99', 'FR002', 1, 1, 1, 1, 1),
-('UF00003', 'A99', 'FR003', 1, 1, 1, 1, 1),
 ('UF00004', 'A99', 'FR101', 1, 1, 1, 1, 1),
 ('UF00005', 'A99', 'FR102', 1, 1, 1, 1, 1),
 ('UF00006', 'A99', 'FR099', 1, 1, 1, 1, 1),
-('UF00007', 'A99', 'FR100', 1, 1, 1, 1, 1);
+('UF00007', 'A99', 'FR100', 1, 1, 1, 1, 1),
+('UF00009', 'A99', 'FR105', 1, 1, 1, 1, 1),
+('UF00010', 'A99', 'FR106', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -165,11 +166,12 @@ CREATE TABLE `tb_frm` (
 
 INSERT INTO `tb_frm` (`code_frm`, `id_frm`, `desc_frm`, `id_frmgroup`, `is_shortcut`, `stat_frm`, `sort_order`) VALUES
 ('FR002', 'Form', 'Daftar Form', 'FG05', 1, 1, 1),
-('FR003', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1),
-('FR099', 'Barang', 'Form Barang', 'FG99', 1, 1, 1),
-('FR100', 'Pelamar', 'Form Pelamar', 'FG99', 0, 1, 1),
-('FR101', 'Access', 'Hak Akses', 'FG99', 0, 1, 1),
-('FR102', 'Useraccess', 'Hak Akses', 'FG99', 0, 1, 1);
+('FR099', 'Kendaraan', 'Data Kendaraan', 'FG05', 1, 1, 1),
+('FR100', 'Request_rute', 'Data Request Rute', 'FG05', 1, 1, 1),
+('FR101', 'Access', 'Hak Akses', 'FG99', 1, 1, 1),
+('FR102', 'Useraccess', 'Hak Akses', 'FG99', 1, 1, 1),
+('FR105', 'History', 'History Lokasi', 'FG05', 0, 0, 1),
+('FR106', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +201,7 @@ INSERT INTO `tb_frmgroup` (`id_frmgroup`, `nm_frmgroup`, `icon_frmgroup`, `iconc
 --
 
 CREATE TABLE `tb_kendaraan` (
-  `id_kendaraan` int(11) NOT NULL,
+  `id_kendaraan` char(7) NOT NULL,
   `jenis_kendaraan` varchar(255) NOT NULL,
   `merk_kendaraan` varchar(255) NOT NULL,
   `nomor_kendaraan` varchar(255) NOT NULL,
@@ -211,10 +213,11 @@ CREATE TABLE `tb_kendaraan` (
 --
 
 INSERT INTO `tb_kendaraan` (`id_kendaraan`, `jenis_kendaraan`, `merk_kendaraan`, `nomor_kendaraan`, `pengguna_kendaraan`) VALUES
-(1, 'mobil', 'toyota', 'p 3047 ko', 'Sari'),
-(2, 'mobil', 'toyota', 'P 4301 MD', 'Ella'),
-(3, 'mobil', 'toyota', 'P 2076 YT', 'Sari'),
-(4, 'mobil', 'toyota', 'P 5628 PT', 'Nando');
+('KDR0001', 'mobil', 'toyota', 'p 3047 ko', 'Sari'),
+('KDR0002', 'mobil', 'toyota', 'P 4301 MD', 'Ella'),
+('KDR0003', 'mobil', 'toyota', 'P 2076 YT', 'Sari'),
+('KDR0004', 'mobil', 'toyota', 'P 5628 PT', 'Nando'),
+('KDR0005', 'Mobil', 'Honda', 'P 4567 PT', 'Badar');
 
 -- --------------------------------------------------------
 
@@ -245,8 +248,8 @@ INSERT INTO `tb_loc` (`id_loc`, `nm_loc`, `phn_loc`, `fax_loc`, `email_loc`, `ad
 --
 
 CREATE TABLE `tb_lokasi` (
-  `id_lokasi` int(11) NOT NULL,
-  `id_kendaraan` int(11) NOT NULL,
+  `id_lokasi` char(7) NOT NULL,
+  `id_kendaraan` char(7) NOT NULL,
   `nama_lokasi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -255,10 +258,9 @@ CREATE TABLE `tb_lokasi` (
 --
 
 INSERT INTO `tb_lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`) VALUES
-(1, 1, 'Mangli'),
-(12, 2, 'Jember'),
-(13, 3, 'Bangsal'),
-(14, 4, 'Tanggul');
+('LKS0001', 'KDR0001', 'Mangli'),
+('LKS0002', 'KDR0002', 'Jember'),
+('LKS0003', 'KDR0003', 'Bangsal');
 
 -- --------------------------------------------------------
 
@@ -267,7 +269,7 @@ INSERT INTO `tb_lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`) VALUES
 --
 
 CREATE TABLE `tb_riwayat` (
-  `id_riwayat` int(11) NOT NULL,
+  `id_riwayat` char(7) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_lokasi` int(11) NOT NULL,
   `latitude_now` varchar(255) NOT NULL,
@@ -281,7 +283,7 @@ CREATE TABLE `tb_riwayat` (
 --
 
 INSERT INTO `tb_riwayat` (`id_riwayat`, `waktu`, `id_lokasi`, `latitude_now`, `longitude_now`, `jarak_now`, `status`) VALUES
-(1, '2020-09-24 06:39:27', 2, '5', '2', 4, 'di jalan');
+('RWT0001', '2020-09-28 06:14:26', 2, '5', '2', 4, 'di jalan');
 
 -- --------------------------------------------------------
 
@@ -390,6 +392,12 @@ ALTER TABLE `tb_lokasi`
   ADD PRIMARY KEY (`id_lokasi`);
 
 --
+-- Indexes for table `tb_riwayat`
+--
+ALTER TABLE `tb_riwayat`
+  ADD PRIMARY KEY (`id_riwayat`);
+
+--
 -- Indexes for table `tb_setting`
 --
 ALTER TABLE `tb_setting`
@@ -400,22 +408,6 @@ ALTER TABLE `tb_setting`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`code_user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_kendaraan`
---
-ALTER TABLE `tb_kendaraan`
-  MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `tb_lokasi`
---
-ALTER TABLE `tb_lokasi`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
