@@ -164,7 +164,7 @@
                 <div class="row">
                     <!-- copyright -->
                     <div class="col-md-4 col-sm-4">
-                        copyright &copy; 2016 <a href="#" style="margin-left: 4px;"><?= $dbset[2];?></a>
+                        copyright &copy; 2020 <a href="#" style="margin-left: 4px;"><?= $dbset[2];?></a>
                         <br>
                     </div>
 
