@@ -31,8 +31,14 @@ class Request_rute extends CI_Controller
 	//query
 	var $ordQuery=" ORDER BY id_lokasi DESC ";
 	var $tableQuery="tb_lokasi AS a INNER JOIN tb_kendaraan AS b ON a.id_lokasi = b.id_kendaraan";
-	var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
-	
+	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
+	var $fieldQuery="
+						a.id_lokasi,
+						b.id_kendaraan,
+						b.merk_kendaraan,
+						b.pengguna_kendaraan,
+						a.nama_lokasi
+						";
 	// var $tableQuery="
 	// 					tb_kendaraan
 	// 					";
@@ -50,7 +56,7 @@ class Request_rute extends CI_Controller
 	//sesuaikan panjangnya length di database
 	var $defaultId="LKS0001";
 	var $prefix="LKS";
-	var $suffix="00001";	
+	var $suffix="0001";	
 	
 	//view
 	var $viewFormTitle="Daftar Request Rute";
