@@ -15,12 +15,12 @@ class Request_rute extends CI_Controller
 		====================================================== Variable Declaration =========================================================
 	*/
 	
-	var $mainTable="tb_lokasi";
+	var $mainTable="id_lokasi";
 	var $mainPk="id_lokasi";
-	var $viewLink="Request Rute";
+	var $viewLink="Request_rute";
 	// var $viewLink2="Users";
 	//sub menu atau header
-	var $breadcrumbTitle="Data Request Rute";
+	var $breadcrumbTitle="Data Request";
 	//var $breadcrumbTitle2="User Access";
 	// buat tampilan view data
 	var $viewPage="Admviewpage";
@@ -39,18 +39,9 @@ class Request_rute extends CI_Controller
 						b.pengguna_kendaraan,
 						a.nama_lokasi
 						";
-	// var $tableQuery="
-	// 					tb_kendaraan
-	// 					";
-	// var $fieldQuery="
-	// 					id_lokasi,
-	// 					id_kendaraan,
-	// 					nama_lokasi,
-	// 					"; //leave blank to show all field
-						
 	var $primaryKey="id_lokasi";
 	//var $detKey="nik";
-	var $updateKey="id_lokasi";
+	var $updateKey="a.id_lokasi";
 	
 	//auto generate id
 	//sesuaikan panjangnya length di database
@@ -59,26 +50,27 @@ class Request_rute extends CI_Controller
 	var $suffix="0001";	
 	
 	//view
-	var $viewFormTitle="Daftar Request Rute";
+	var $viewFormTitle="Daftar Request";
 	var $viewFormTableHeader=array(
 									"Id Lokasi",
 									"Id Kendaraan",
 									"Kendaraan",
 									"Pengguna",
-									"Lokasi"
+                                    "Lokasi"
 									);
 	
 	//save
-	var $saveFormTitle="Tambah Rute";
-	var $saveFormTableHeader=array(
-									"Id Lokasi",
-									"Id Kendaraan",
-									"Pengguna",
-									"Lokasi"
-									);
+	// var $saveFormTitle="Tambah Kendaraan";
+	// var $saveFormTableHeader=array(
+	// 								"Id Kendaraan",
+	// 								"Jenis Kendaraan",
+	// 								"Merk Kendaraan",
+	// 								"Nomor Kendaraan",
+	// 								"Nama Pengguna"
+	// 								);
 	
 	//update
-	var $editFormTitle="Ubah Rute";
+	// var $editFormTitle="Ubah Data Kendaraan";
 	
 	/*	
 		========================================================== General Function =========================================================
@@ -152,7 +144,6 @@ class Request_rute extends CI_Controller
 	}
 	
 
-	
 	public function add($isEdit="")
 	{
 		//init modal
@@ -206,10 +197,11 @@ class Request_rute extends CI_Controller
 		
 		
 		$output['formTxt']=array(
-								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='txtKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='txtLokasi' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
+								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
+								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 20 karakter' maxlength='20'>",
+								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 10 karakter' maxlength='70'>"
 								
 								);
 		
