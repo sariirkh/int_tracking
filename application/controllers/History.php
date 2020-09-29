@@ -15,7 +15,7 @@ class History extends CI_Controller
 		====================================================== Variable Declaration =========================================================
 	*/
 	
-	var $mainTable="id_riwayat";
+	var $mainTable="tb_riwayat";
 	var $mainPk="id_riwayat";
 	var $viewLink="History";
 	// var $viewLink2="Users";
@@ -30,7 +30,7 @@ class History extends CI_Controller
 	
 	//query
 	var $ordQuery=" ORDER BY id_riwayat DESC ";
-	var $tableQuery="tb_riwayat AS a INNER JOIN tb_lokasi AS b INNER JOIN tb_kendaraan AS c ON a.id_riwayat = b.id_lokasi = c.id_kendaraan";
+	var $tableQuery="tb_riwayat AS a INNER JOIN tb_lokasi AS b INNER JOIN tb_kendaraan AS c ON a.id_lokasi = b.id_lokasi && b.id_kendaraan = c.id_kendaraan";
 	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
 	var $fieldQuery="
 						a.id_riwayat,
