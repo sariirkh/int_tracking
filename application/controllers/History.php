@@ -30,19 +30,17 @@ class History extends CI_Controller
 	
 	//query
 	var $ordQuery=" ORDER BY id_riwayat DESC ";
-	var $tableQuery="
-						tb_riwayat
-						";
+	var $tableQuery="tb_riwayat AS a INNER JOIN tb_lokasi AS b INNER JOIN tb_kendaraan AS c ON a.id_riwayat = b.id_lokasi = c.id_kendaraan";
+	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
 	var $fieldQuery="
-						id_riwayat,
-						waktu,
-						id_lokasi,
-                        latitude_now,
-                        longitude_now,
-                        jarak_now,
-						status
-						"; //leave blank to show all field
-						
+						a.id_riwayat,
+						a.waktu,
+						c.merk_kendaraan,
+						c.pengguna_kendaraan,
+						b.nama_lokasi,
+						a.jarak_now,
+						a.status
+						";
 	var $primaryKey="id_riwayat";
 	//var $detKey="nik";
 	var $updateKey="id_riwayat";
