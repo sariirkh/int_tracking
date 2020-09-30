@@ -216,6 +216,7 @@ class Request_rute extends CI_Controller
 		//load view
 		$this->fn->getheader();
 		$this->load->view($this->addPage,$output);
+		$this->load->view('map/index');
 		$this->fn->getfooter();
 	}	
 	
