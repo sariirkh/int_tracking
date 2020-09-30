@@ -59,14 +59,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$active_group = 'default';
+$active_group = 'db_tracking';
 $query_builder = TRUE;
 
-$db['default'] = array(
+$db['db_tracking'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => '10.10.10.182',
+	'username' => 'web_backend',
+	'password' => 'WarungKopi@41',
 	'database' => 'db_tracking',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
