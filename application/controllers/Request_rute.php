@@ -60,17 +60,24 @@ class Request_rute extends CI_Controller
 									);
 	
 	//save
-	// var $saveFormTitle="Tambah Kendaraan";
-	// var $saveFormTableHeader=array(
-	// 								"Id Kendaraan",
-	// 								"Jenis Kendaraan",
-	// 								"Merk Kendaraan",
-	// 								"Nomor Kendaraan",
-	// 								"Nama Pengguna"
-	// 								);
+	var $saveFormTitle="Tambah Lokasi";
+	var $saveFormTableHeader=array(
+									"Id Lokasi",
+									"Id Kendaraan",
+									"Kendaraan",
+									"Pengguna",
+									"Lokasi"
+									);
 	
 	//update
-	// var $editFormTitle="Ubah Data Kendaraan";
+	var $editFormTitle="Ubah Lokasi";
+	var $editFormTableHeader=array(
+		"Id Lokasi",
+		"Id Kendaraan",
+		"Kendaraan",
+		"Pengguna",
+		"Lokasi"
+		);
 	
 	/*	
 		========================================================== General Function =========================================================
@@ -198,7 +205,7 @@ class Request_rute extends CI_Controller
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
-								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
+								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
 								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 20 karakter' maxlength='20'>",
 								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 10 karakter' maxlength='70'>"
