@@ -23,7 +23,7 @@ class History extends CI_Controller
 	var $breadcrumbTitle="Data History";
 	//var $breadcrumbTitle2="User Access";
 	// buat tampilan view data
-	var $viewPage="Admviewpage";
+	var $viewPage="Admviewpagehistory";
 	//buat view tambah data
 	var $addPage="Admaddpage";
 	//var $detPage="Formdetpage";

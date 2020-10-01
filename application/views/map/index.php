@@ -3,8 +3,12 @@
 <script src="<?= base_url(); ?>/assets/leaflet/leaflet.js"></script>
  
 <style>
-#map { height: 800px;
-    width: 1100px; }
+#align{ align:center;
+
+}
+#map { height: 500px;
+    width: 1000px; 
+    }
 </style>
 <div id="map"></div>
  

@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = "http://localhost/int_tracking";
+$config['base_url'] = "http://10.10.10.182/int_tracking";
 //$config['base_url'] = "http://mio.test/";
 
 /*

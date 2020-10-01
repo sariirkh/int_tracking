@@ -1,4 +1,4 @@
-	 <section class="content-header">
+<section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -190,7 +190,9 @@
 									<i class="fa fa-trash fa-fw text-red"></i>
 								</a>
 
-								
+								<a  data-target="detail" title="detail" href="detailhistory" name="<?= $pid;?>" class="detail">
+									<i class>detail</i>
+								</a>
 								<?php
 								}
 								?>
