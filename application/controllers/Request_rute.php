@@ -198,14 +198,14 @@ class Request_rute extends CI_Controller
 				
 	
 		}
-		
-		// $cboacc=$this->fn->createCbofromDb("tb_acc","id_acc as id,nm_acc as nm","",$txtVal[58],"","txtUser[]");
+		// BUAT COMBO BOX
+		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id,nm_acc as nm","",$txtVal[1],"","txtUser[]");
 		// $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
 		
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
-								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
+								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 20 karakter' maxlength='20'>",
 								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 10 karakter' maxlength='70'>"
