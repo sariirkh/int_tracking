@@ -163,6 +163,7 @@ class Commonfunction
 		$this->CI->load->model('Mmain');
 		$qemp=$this->CI->Mmain->qRead($cboTb,$cboSel,$cboWhere);
 		$cboemp="<select name=$nmdef class='form-control ' $isdis>";
+		$cboemp.="<option  value=''>Pilih Kendaraan</option>";
 		foreach($qemp->result() as $row)
 		{
 			$isdef="";

@@ -35,7 +35,6 @@ class Request_rute extends CI_Controller
 	var $fieldQuery="
 						a.id_lokasi,
 						b.id_kendaraan,
-						b.merk_kendaraan,
 						b.nomor_kendaraan,
 						b.pengguna_kendaraan,
 						a.nama_lokasi
@@ -55,7 +54,6 @@ class Request_rute extends CI_Controller
 	var $viewFormTableHeader=array(
 									"Id Lokasi",
 									"Id Kendaraan",
-									"Merk Kendaraan",
 									"Nomor Kendaraan",
 									"Pengguna",
                                     "Lokasi"
@@ -65,6 +63,7 @@ class Request_rute extends CI_Controller
 	var $saveFormTitle="Tambah Lokasi";
 	var $saveFormTableHeader=array(
 									"Id Lokasi",
+									"Id Kendaraan",
 									"Kendaraan",
 									"Pengguna",
 									"Lokasi"
@@ -74,6 +73,7 @@ class Request_rute extends CI_Controller
 	var $editFormTitle="Ubah Lokasi";
 	var $editFormTableHeader=array(
 		"Id Lokasi",
+		"Id Kendaraan",
 		"Kendaraan",
 		"Pengguna",
 		"Lokasi"
@@ -199,15 +199,16 @@ class Request_rute extends CI_Controller
 	
 		}
 		// BUAT COMBO BOX
-		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","merk_kendaraan,nomor_kendaraan","id_kendaraan",".$txtVal[1].");
+		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, nomor_kendaraan as nm","",$txtVal[2],"","txtUser[]");
 		// $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
 		
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
+								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
 								$cboKendaraan,
-								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>"
+								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>"
 								
 								);
 		
