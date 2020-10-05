@@ -37,7 +37,8 @@ class Request_rute extends CI_Controller
 						b.id_kendaraan,
 						b.nomor_kendaraan,
 						b.pengguna_kendaraan,
-						a.nama_lokasi
+						a.nama_lokasi,
+						a.waktu
 						";
 	var $primaryKey="id_lokasi";
 	//var $detKey="nik";
@@ -56,7 +57,8 @@ class Request_rute extends CI_Controller
 									"Id Kendaraan",
 									"Nomor Kendaraan",
 									"Pengguna",
-                                    "Lokasi"
+									"Lokasi",
+									"Waktu"
 									);
 	
 	//save
@@ -66,7 +68,9 @@ class Request_rute extends CI_Controller
 									"Id Kendaraan",
 									"Kendaraan",
 									"Pengguna",
-									"Lokasi"
+									"Lokasi",
+									"Waktu"
+								
 									);
 	
 	//update
@@ -76,7 +80,8 @@ class Request_rute extends CI_Controller
 		"Id Kendaraan",
 		"Kendaraan",
 		"Pengguna",
-		"Lokasi"
+		"Lokasi",
+		"Waktu"
 		);
 	
 	/*	
@@ -208,7 +213,8 @@ class Request_rute extends CI_Controller
 								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[1]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
 								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>"
+								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd H:i:s' autocomplate=off readonly>"
 								
 								);
 		
