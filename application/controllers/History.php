@@ -90,7 +90,7 @@ class History extends CI_Controller
 		$isAll = $this->Mmain->qRead(
 										"tb_accfrm AS a INNER JOIN tb_frm AS b ON a.code_frm = b.code_frm 
 										WHERE a.id_acc ='".$this->session->userdata['accUser']."' AND b.id_frm='".$this->viewLink."'",
-										"a.is_edt as isedt,a.is_del as isdel,a.is_spec1 as acc1,a.is_spec2 as acc2","");
+										"a.is_del as isdel,a.is_spec1 as acc1,a.is_spec2 as acc2","");
 		foreach($isAll ->result() as $row)
 		{
 			$access=$row;

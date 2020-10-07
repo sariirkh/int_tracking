@@ -34,8 +34,10 @@ class Request_rute extends CI_Controller
 	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
 	var $fieldQuery="
 						a.id_lokasi,
-						concat(b.merk_kendaraan,'(',b.nomor_kendaraan,')','-',b.pengguna_kendaraan),
+						concat(b.merk_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
 						a.nama_lokasi,
+						a.lat,
+						a.lng,
 						a.waktu
 						";
 	var $primaryKey="id_lokasi";
@@ -54,6 +56,8 @@ class Request_rute extends CI_Controller
 									"Id Lokasi",
 									"Kendaraan",
 									"Lokasi",
+									"Latitude",
+									"Longitude",
 									"Tanggal"
 									);
 	
@@ -63,6 +67,8 @@ class Request_rute extends CI_Controller
 									"Id Lokasi",
 									"Kendaraan",
 									"Lokasi",
+									"Latitude",
+									"Longitude",
 									"Tanggal"
 								
 									);
@@ -73,6 +79,8 @@ class Request_rute extends CI_Controller
 		"Id Lokasi",
 		"Kendaraan",
 		"Lokasi",
+		"Latitude",
+		"Longitude",
 		"Tanggal"
 		);
 	
@@ -196,14 +204,18 @@ class Request_rute extends CI_Controller
 	
 		}
 		// BUAT COMBO BOX
-		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(merk_kendaraan,'(',nomor_kendaraan,')','-',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
-		// $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
+		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(merk_kendaraan,' (',nomor_kendaraan,') ','- ',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
+		 $lat=null;
+		 $lng=null;
+		 // $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
 		
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
 								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control' id='lat' name=txt[] value='".$lat."' required placeholder='Max. 20 karakter' maxlength='20'>",
+								"<input type='text' class='form-control' id='lng' name=txt[] value='".$lng."' required placeholder='Max. 20 karakter' maxlength='20'>",
 								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[] autocomplate=off readonly>"
 								
 								);
@@ -212,7 +224,7 @@ class Request_rute extends CI_Controller
 		//load view
 		$this->fn->getheader();
 		$this->load->view($this->addPage,$output);
-		$this->load->view('map/index');
+		//$this->load->view('map/index');
 		$this->fn->getfooter();
 	}	
 	

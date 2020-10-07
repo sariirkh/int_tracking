@@ -38,7 +38,7 @@
 						foreach($formLabel as $row)
 						{
 						?> 
-						  <div class="form-group ">
+						  <div class="form-group " class="col-md-12">
 							<label for="inputEmail3" ><?= $row ?></label>
 							  <?= $formTxt[$i] ?>
 								<div class="help-block with-errors"></div>
@@ -47,6 +47,12 @@
 						$i++;
 						}
 						?>
+						
+						<div class="col-md-7">
+							<?php
+								$this->load->view('map/index');
+								?>
+							  </div>
 					<?php
 					}
 					?>
