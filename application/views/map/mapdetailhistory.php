@@ -6,7 +6,7 @@
  
 <style>
 #map { height: 500px;
-    width: 500px; 
+    width: 1000px; 
     }
 </style>
 <div id="map"></div>
@@ -100,7 +100,7 @@
 </script>
 </head>
 <body onLoad="javascript:init();">
-   <input type="button" value="Locate me!" onClick="javascript:getLocationLeaflet();">
+  
    
 </body>
 </html>

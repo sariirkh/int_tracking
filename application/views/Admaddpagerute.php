@@ -29,6 +29,7 @@
 					<form  id="formfield" enctype="multipart/form-data" data-toggle="validator" role="form" method="POST" action="<?= site_url();?><?= $saveLink;?>" >
 					
                 <div class="card-body">
+				<div class="col-md-5">
 					<?php
 					if(!empty($formLabel))
 					{
@@ -48,11 +49,6 @@
 						}
 						?>
 						
-						<div class="col-md-7">
-							<?php
-								$this->load->view('map/index');
-								?>
-							  </div>
 					<?php
 					}
 					?>
@@ -67,7 +63,12 @@
 					  </div>
                 </div><!-- /.box-body -->
 					</form>
-			
+					<div class="card-body">
+					<div class="col-md-5">
+							<?php
+								$this->load->view('map/index');
+								?>
+							  </div>
 					<!-- modal -->
 					<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -98,4 +99,6 @@
           </div><!-- /.row -->
       </div><!-- /.container-fluid -->
         </section><!-- /.content -->
+
+		
       </div><!-- /.content-wrapper -->

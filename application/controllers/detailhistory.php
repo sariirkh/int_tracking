@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class detailhistory extends CI_Controller 
+class Detailhistory extends CI_Controller 
 {
 	public function __construct()
 	{
@@ -21,7 +21,7 @@ class detailhistory extends CI_Controller
 		$this->load->model('Mmain');
 		
 		$this->fn->getheader();	
-		$this->load->view('map/index');
+		$this->load->view('map/mapdetailhistory');
 		$this->fn->getfooter();
 
 	
