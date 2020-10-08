@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2020 at 10:50 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Waktu pembuatan: 09 Okt 2020 pada 00.27
+-- Versi server: 10.1.40-MariaDB
+-- Versi PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_acc`
+-- Struktur dari tabel `tb_acc`
 --
 
 CREATE TABLE `tb_acc` (
@@ -36,7 +36,7 @@ CREATE TABLE `tb_acc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_acc`
+-- Dumping data untuk tabel `tb_acc`
 --
 
 INSERT INTO `tb_acc` (`id_acc`, `nm_acc`, `rem_acc`, `stat_acc`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `tb_acc` (`id_acc`, `nm_acc`, `rem_acc`, `stat_acc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_accfrm`
+-- Struktur dari tabel `tb_accfrm`
 --
 
 CREATE TABLE `tb_accfrm` (
@@ -60,7 +60,7 @@ CREATE TABLE `tb_accfrm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_accfrm`
+-- Dumping data untuk tabel `tb_accfrm`
 --
 
 INSERT INTO `tb_accfrm` (`id_userfrm`, `id_acc`, `code_frm`, `is_add`, `is_edt`, `is_del`, `is_spec1`, `is_spec2`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `tb_accfrm` (`id_userfrm`, `id_acc`, `code_frm`, `is_add`, `is_edt`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_emp`
+-- Struktur dari tabel `tb_emp`
 --
 
 CREATE TABLE `tb_emp` (
@@ -138,7 +138,7 @@ CREATE TABLE `tb_emp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_emp`
+-- Dumping data untuk tabel `tb_emp`
 --
 
 INSERT INTO `tb_emp` (`id_emp`, `nm_emp`, `nicknm_emp`, `altnm_emp`, `hon_emp`, `nik_emp`, `id_div`, `id_dept`, `about_emp`, `title_emp`, `pos_emp`, `site_emp`, `stw_emp`, `enw_emp`, `id_loc`, `sex_emp`, `bp_emp`, `bd_emp`, `phone_emp`, `ktp_emp`, `kk_emp`, `sn_emp`, `address_emp`, `marst_emp`, `rel_emp`, `eth_emp`, `edu_emp`, `maj_emp`, `uni_emp`, `blood_emp`, `sim_emp`, `passport_emp`, `npwp_emp`, `bpjs_emp`, `kpj_emp`, `email_emp`, `emailwork_emp`, `bank_emp`, `bankbranch_emp`, `bankacc_emp`, `ecn_emp`, `father_emp`, `mother_emp`, `spouse_emp`, `numchild_emp`, `numsibling_emp`, `workday_emp`, `worktime_emp`, `efin_emp`, `id_st_emp`, `acno_emp`, `id_tt`, `notes_emp`, `show_emp`, `code_user`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `tb_emp` (`id_emp`, `nm_emp`, `nicknm_emp`, `altnm_emp`, `hon_emp`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_frm`
+-- Struktur dari tabel `tb_frm`
 --
 
 CREATE TABLE `tb_frm` (
@@ -161,7 +161,7 @@ CREATE TABLE `tb_frm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_frm`
+-- Dumping data untuk tabel `tb_frm`
 --
 
 INSERT INTO `tb_frm` (`code_frm`, `id_frm`, `desc_frm`, `id_frmgroup`, `is_shortcut`, `stat_frm`, `sort_order`) VALUES
@@ -171,12 +171,13 @@ INSERT INTO `tb_frm` (`code_frm`, `id_frm`, `desc_frm`, `id_frmgroup`, `is_short
 ('FR101', 'Access', 'Hak Akses', 'FG99', 1, 1, 1),
 ('FR102', 'Useraccess', 'Hak Akses', 'FG99', 1, 1, 1),
 ('FR105', 'History', 'History Lokasi', 'FG05', 0, 0, 1),
-('FR106', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1);
+('FR106', 'Form Group', 'Daftar Form Group', 'FG05', 1, 1, 1),
+('FR107', 'Dashboard', 'Dashboard', 'FG99', 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_frmgroup`
+-- Struktur dari tabel `tb_frmgroup`
 --
 
 CREATE TABLE `tb_frmgroup` (
@@ -187,7 +188,7 @@ CREATE TABLE `tb_frmgroup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_frmgroup`
+-- Dumping data untuk tabel `tb_frmgroup`
 --
 
 INSERT INTO `tb_frmgroup` (`id_frmgroup`, `nm_frmgroup`, `icon_frmgroup`, `iconcolor_frmgroup`) VALUES
@@ -197,32 +198,30 @@ INSERT INTO `tb_frmgroup` (`id_frmgroup`, `nm_frmgroup`, `icon_frmgroup`, `iconc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kendaraan`
+-- Struktur dari tabel `tb_kendaraan`
 --
 
 CREATE TABLE `tb_kendaraan` (
   `id_kendaraan` char(7) NOT NULL,
-  `jenis_kendaraan` varchar(255) NOT NULL,
+  `nama_kendaraan` varchar(255) NOT NULL,
   `merk_kendaraan` varchar(255) NOT NULL,
   `nomor_kendaraan` varchar(255) NOT NULL,
-  `pengguna_kendaraan` varchar(255) NOT NULL
+  `pengguna_kendaraan` varchar(255) NOT NULL,
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_kendaraan`
+-- Dumping data untuk tabel `tb_kendaraan`
 --
 
-INSERT INTO `tb_kendaraan` (`id_kendaraan`, `jenis_kendaraan`, `merk_kendaraan`, `nomor_kendaraan`, `pengguna_kendaraan`) VALUES
-('KDR0001', 'mobil', 'toyota', 'p 3047 ko', 'Sari'),
-('KDR0002', 'mobil', 'toyota', 'P 4301 MD', 'Ella'),
-('KDR0003', 'mobil', 'toyota', 'P 2076 YT', 'Sari'),
-('KDR0004', 'mobil', 'toyota', 'P 5628 PT', 'Nando'),
-('KDR0005', 'Mobil', 'Honda', 'P 4567 PT', 'Badar');
+INSERT INTO `tb_kendaraan` (`id_kendaraan`, `nama_kendaraan`, `merk_kendaraan`, `nomor_kendaraan`, `pengguna_kendaraan`, `foto`) VALUES
+('KDR0006', 'Ayla Merah', 'Daihatsu', 'P 33 WR', 'Bobi', ''),
+('KDR0007', 'Terios Putih', 'Daihatsu', 'P 374 W', 'Agus', 'build.PNG');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_loc`
+-- Struktur dari tabel `tb_loc`
 --
 
 CREATE TABLE `tb_loc` (
@@ -235,7 +234,7 @@ CREATE TABLE `tb_loc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_loc`
+-- Dumping data untuk tabel `tb_loc`
 --
 
 INSERT INTO `tb_loc` (`id_loc`, `nm_loc`, `phn_loc`, `fax_loc`, `email_loc`, `addr_loc`) VALUES
@@ -244,34 +243,39 @@ INSERT INTO `tb_loc` (`id_loc`, `nm_loc`, `phn_loc`, `fax_loc`, `email_loc`, `ad
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_lokasi`
+-- Struktur dari tabel `tb_lokasi`
 --
 
 CREATE TABLE `tb_lokasi` (
   `id_lokasi` char(7) NOT NULL,
   `id_kendaraan` char(7) NOT NULL,
-  `nama_lokasi` varchar(255) NOT NULL
+  `nama_lokasi` varchar(255) NOT NULL,
+  `lat` varchar(20) NOT NULL,
+  `lng` varchar(20) NOT NULL,
+  `waktu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_lokasi`
+-- Dumping data untuk tabel `tb_lokasi`
 --
 
-INSERT INTO `tb_lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`) VALUES
-('LKS0001', 'KDR0001', 'Mangli'),
-('LKS0002', 'KDR0002', 'Jember'),
-('LKS0003', 'KDR0003', 'Bangsal');
+INSERT INTO `tb_lokasi` (`id_lokasi`, `id_kendaraan`, `nama_lokasi`, `lat`, `lng`, `waktu`) VALUES
+('LKS0001', 'KDR0001', 'Mangli', '', '', '0000-00-00'),
+('LKS0002', 'KDR0002', 'Jember', '', '', '0000-00-00'),
+('LKS0003', 'KDR0003', 'Bangsal', '', '', '0000-00-00'),
+('LKS0004', 'KDR0003', 'Dashboard', '', '', '2020-10-08'),
+('LKS0005', 'KDR0006', 'Bangsal', '40.75637123', '2345', '2020-10-16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_riwayat`
+-- Struktur dari tabel `tb_riwayat`
 --
 
 CREATE TABLE `tb_riwayat` (
   `id_riwayat` char(7) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `id_lokasi` int(11) NOT NULL,
+  `id_lokasi` char(7) NOT NULL,
   `latitude_now` varchar(255) NOT NULL,
   `longitude_now` varchar(255) NOT NULL,
   `jarak_now` double NOT NULL,
@@ -279,16 +283,16 @@ CREATE TABLE `tb_riwayat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_riwayat`
+-- Dumping data untuk tabel `tb_riwayat`
 --
 
 INSERT INTO `tb_riwayat` (`id_riwayat`, `waktu`, `id_lokasi`, `latitude_now`, `longitude_now`, `jarak_now`, `status`) VALUES
-('RWT0001', '2020-09-28 06:14:26', 2, '5', '2', 4, 'di jalan');
+('RW0001', '2020-09-29 07:44:46', 'LKS0001', '4', '3', 10, 'di jalan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_setting`
+-- Struktur dari tabel `tb_setting`
 --
 
 CREATE TABLE `tb_setting` (
@@ -309,7 +313,7 @@ CREATE TABLE `tb_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_setting`
+-- Dumping data untuk tabel `tb_setting`
 --
 
 INSERT INTO `tb_setting` (`profile_id`, `website_name`, `website_title`, `website_icon`, `website_logo`, `website_address`, `website_phone`, `website_email`, `website_twitter`, `website_facebook`, `website_linkedin`, `website_gplus`, `website_instagram`, `profile_status`) VALUES
@@ -318,7 +322,7 @@ INSERT INTO `tb_setting` (`profile_id`, `website_name`, `website_title`, `websit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -333,7 +337,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`code_user`, `nm_user`, `pwd_user`, `id_acc`, `ava_user`, `jd_user`, `isonline_user`, `lastlogin_user`) VALUES
@@ -344,67 +348,67 @@ INSERT INTO `tb_user` (`code_user`, `nm_user`, `pwd_user`, `id_acc`, `ava_user`,
 --
 
 --
--- Indexes for table `tb_acc`
+-- Indeks untuk tabel `tb_acc`
 --
 ALTER TABLE `tb_acc`
   ADD PRIMARY KEY (`id_acc`);
 
 --
--- Indexes for table `tb_accfrm`
+-- Indeks untuk tabel `tb_accfrm`
 --
 ALTER TABLE `tb_accfrm`
   ADD PRIMARY KEY (`id_userfrm`);
 
 --
--- Indexes for table `tb_emp`
+-- Indeks untuk tabel `tb_emp`
 --
 ALTER TABLE `tb_emp`
   ADD PRIMARY KEY (`id_emp`);
 
 --
--- Indexes for table `tb_frm`
+-- Indeks untuk tabel `tb_frm`
 --
 ALTER TABLE `tb_frm`
   ADD PRIMARY KEY (`code_frm`);
 
 --
--- Indexes for table `tb_frmgroup`
+-- Indeks untuk tabel `tb_frmgroup`
 --
 ALTER TABLE `tb_frmgroup`
   ADD PRIMARY KEY (`id_frmgroup`);
 
 --
--- Indexes for table `tb_kendaraan`
+-- Indeks untuk tabel `tb_kendaraan`
 --
 ALTER TABLE `tb_kendaraan`
   ADD PRIMARY KEY (`id_kendaraan`);
 
 --
--- Indexes for table `tb_loc`
+-- Indeks untuk tabel `tb_loc`
 --
 ALTER TABLE `tb_loc`
   ADD PRIMARY KEY (`id_loc`);
 
 --
--- Indexes for table `tb_lokasi`
+-- Indeks untuk tabel `tb_lokasi`
 --
 ALTER TABLE `tb_lokasi`
   ADD PRIMARY KEY (`id_lokasi`);
 
 --
--- Indexes for table `tb_riwayat`
+-- Indeks untuk tabel `tb_riwayat`
 --
 ALTER TABLE `tb_riwayat`
   ADD PRIMARY KEY (`id_riwayat`);
 
 --
--- Indexes for table `tb_setting`
+-- Indeks untuk tabel `tb_setting`
 --
 ALTER TABLE `tb_setting`
   ADD PRIMARY KEY (`profile_id`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`code_user`);

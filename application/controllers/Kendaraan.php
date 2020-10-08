@@ -38,7 +38,8 @@ class Kendaraan extends CI_Controller
 						nama_kendaraan,
 						merk_kendaraan,
 						nomor_kendaraan,
-						pengguna_kendaraan
+						pengguna_kendaraan,
+						foto
 						"; //leave blank to show all field
 						
 	var $primaryKey="id_kendaraan";
@@ -58,7 +59,8 @@ class Kendaraan extends CI_Controller
 									"Nama Kendaraan",
 									"Merk Kendaraan",
 									"Nomor Kendaraan",
-									"Nama Pengguna"
+									"Nama Pengguna",
+									"Foto"
 									);
 	
 	//save
@@ -68,7 +70,8 @@ class Kendaraan extends CI_Controller
 									"Nama Kendaraan",
 									"Merk Kendaraan",
 									"Nomor Kendaraan",
-									"Nama Pengguna"
+									"Nama Pengguna",
+									"Foto"
 									);
 	
 	//update
@@ -125,7 +128,7 @@ class Kendaraan extends CI_Controller
 		$renderTemp=$this->Mmain->qRead($this->tableQuery.$this->ordQuery,$this->fieldQuery,"");
 		foreach($renderTemp->result() as $row)
 		{
-
+			$row->foto="<img src='".base_url()."assets/foto/".$row->foto."' height='auto' width='100px' >";
 		}
 		$output['render']=$renderTemp;
 		//init view
@@ -149,6 +152,7 @@ class Kendaraan extends CI_Controller
 	
 	public function add($isEdit="")
 	{
+
 		//init modal
 		$this->load->database();
 		$this->load->model('Mmain');
@@ -180,7 +184,10 @@ class Kendaraan extends CI_Controller
 					$txtVal[]= $col;
 				}
 			}
-			
+		
+			$imgTemp="<h5><i>Click browse to change image</i></h5>
+			<img src='".base_url()."/assets/foto/".$txtVal[5]."' height='200px' width='auto' >
+			<input type='hidden' name='txtimg' value='".$txtVal[5]."'>";	
 		}
 		else
 		{	
@@ -204,8 +211,8 @@ class Kendaraan extends CI_Controller
 								"<input type='text' class='form-control' id='txtNamaKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
 								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 20 karakter' maxlength='20'>",
 								"<input type='text' class='form-control' id='txtNomorKendaraan' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 10 karakter' maxlength='10'>",
-								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>"
-								
+								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								$imgTemp."<input type='file' class='form-control fileupload' id='txtid23' name=txtfl >"
 								);
 		
 		
@@ -223,9 +230,24 @@ class Kendaraan extends CI_Controller
 		//save to database
 		$this->load->database();
 		$this->load->model('Mmain');
-		
+		//foto
+		$avauser="";
+		if(!empty($_FILES['txtfl']['name']))
+		{
+			$flName=$_FILES['txtfl']['name'];
+			$flTmp=$_FILES['txtfl']['tmp_name'];
+			$fltype=$_FILES['txtfl']['type'];
+			move_uploaded_file($flTmp,"assets/foto/".$flName);
+			$avauser=$flName;
+		}
+		else
+		{
+			$avauser="def.jpg";
+		}
+		$savValTemp[]=$avauser;
 		$this->Mmain->qIns($this->mainTable,$savValTemp);
 		
+
 		$this->session->set_flashdata('successNotification', '1');
 		//redirect to form
 		redirect($this->viewLink,'refresh');		
@@ -276,8 +298,26 @@ class Kendaraan extends CI_Controller
 		// //foreach($savValTemp as $i => $row) echo ($i+1)." ".$row."<br>";
 		// //foreach($savValUserTemp as $i => $row) echo ($i+1)." ".$row."<br>";
 		
-		$this->Mmain->qUpd($this->mainTable,$this->mainPk,$savValTemp[0],$savValTemp);
+	
+
+		//update foto	
+		$avauser="";
+		if(!empty($_FILES['txtfl']['name']))
+		{
+			$flName=$_FILES['txtfl']['name'];
+			$flTmp=$_FILES['txtfl']['tmp_name'];
+			$fltype=$_FILES['txtfl']['type'];
+			move_uploaded_file($flTmp,"assets/foto/".$flName); 
+			$avauser=$flName;
+		}
+		else
+		{
+			$avauser=$this->input->post('txtimg');
+		}
+	   
+		$savValTemp[]=$avauser;
 		
+		$this->Mmain->qUpd($this->mainTable,$this->mainPk,$savValTemp[0],$savValTemp);
 		$this->session->set_flashdata('successNotification', '2');
 		//redirect to form
 		redirect($this->viewLink,'refresh');		
