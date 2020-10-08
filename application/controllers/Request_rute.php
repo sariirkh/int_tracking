@@ -34,7 +34,7 @@ class Request_rute extends CI_Controller
 	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
 	var $fieldQuery="
 						a.id_lokasi,
-						concat(b.merk_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
+						concat(b.nama_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
 						a.nama_lokasi,
 						a.lat,
 						a.lng,
@@ -204,7 +204,7 @@ class Request_rute extends CI_Controller
 	
 		}
 		// BUAT COMBO BOX
-		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(merk_kendaraan,' (',nomor_kendaraan,') ','- ',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
+		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(nama_kendaraan,' (',nomor_kendaraan,') ','- ',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
 		 $lat=null;
 		 $lng=null;
 		 // $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);

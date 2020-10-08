@@ -35,7 +35,7 @@ class Kendaraan extends CI_Controller
 						";
 	var $fieldQuery="
 						id_kendaraan,
-						jenis_kendaraan,
+						nama_kendaraan,
 						merk_kendaraan,
 						nomor_kendaraan,
 						pengguna_kendaraan
@@ -55,7 +55,7 @@ class Kendaraan extends CI_Controller
 	var $viewFormTitle="Daftar Kendaraan";
 	var $viewFormTableHeader=array(
 									"Id Kendaraan",
-									"Jenis Kendaraan",
+									"Nama Kendaraan",
 									"Merk Kendaraan",
 									"Nomor Kendaraan",
 									"Nama Pengguna"
@@ -65,7 +65,7 @@ class Kendaraan extends CI_Controller
 	var $saveFormTitle="Tambah Kendaraan";
 	var $saveFormTableHeader=array(
 									"Id Kendaraan",
-									"Jenis Kendaraan",
+									"Nama Kendaraan",
 									"Merk Kendaraan",
 									"Nomor Kendaraan",
 									"Nama Pengguna"
@@ -201,7 +201,7 @@ class Kendaraan extends CI_Controller
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
-								"<input type='text' class='form-control' id='txtJenisKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
+								"<input type='text' class='form-control' id='txtNamaKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
 								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 20 karakter' maxlength='20'>",
 								"<input type='text' class='form-control' id='txtNomorKendaraan' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 10 karakter' maxlength='10'>",
 								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 70 karakter' maxlength='70'>"
