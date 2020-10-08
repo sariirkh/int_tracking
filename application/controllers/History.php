@@ -35,8 +35,8 @@ class History extends CI_Controller
 	var $fieldQuery="
 						a.id_riwayat,
 						a.waktu,
-						c.merk_kendaraan,
-						c.pengguna_kendaraan,
+						concat(c.nama_kendaraan,' (',c.nomor_kendaraan,') ','- ',c.pengguna_kendaraan),
+						c.foto,
 						b.nama_lokasi,
 						a.jarak_now,
 						a.status
@@ -57,7 +57,7 @@ class History extends CI_Controller
 									"Id Riwayat",
 									"Waktu",
 									"Kendaraan",
-									"Pengguna",
+									"Foto",
                                     "Lokasi Awal",
                                     "Jarak dari Lokasi Awal",
                                     "Status"
@@ -127,7 +127,7 @@ class History extends CI_Controller
 		$renderTemp=$this->Mmain->qRead($this->tableQuery.$this->ordQuery,$this->fieldQuery,"");
 		foreach($renderTemp->result() as $row)
 		{
-
+			$row->foto="<img src='".base_url()."assets/foto/".$row->foto."' height='auto' width='100px' >";
 		}
 		$output['render']=$renderTemp;
 		//init view
