@@ -66,7 +66,7 @@
 					<div class="card-body">
 					<div class="col-md-5">
 							<?php
-								$this->load->view('map/tesmap');
+								//$this->load->view('map/tesmap');
 								?>
 							  </div>
 					<!-- modal -->

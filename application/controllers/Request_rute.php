@@ -36,8 +36,6 @@ class Request_rute extends CI_Controller
 						a.id_lokasi,
 						concat(b.nama_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
 						a.nama_lokasi,
-						a.lat,
-						a.lng,
 						a.waktu
 						";
 	var $primaryKey="id_lokasi";
@@ -55,9 +53,7 @@ class Request_rute extends CI_Controller
 	var $viewFormTableHeader=array(
 									"Id Lokasi",
 									"Kendaraan",
-									"Lokasi",
-									"Latitude",
-									"Longitude",
+									"Tempat Tujuan",
 									"Tanggal"
 									);
 	
@@ -66,9 +62,8 @@ class Request_rute extends CI_Controller
 	var $saveFormTableHeader=array(
 									"Id Lokasi",
 									"Kendaraan",
-									"Lokasi",
-									"Latitude",
-									"Longitude",
+									"Tempat Tujuan",
+									
 									"Tanggal"
 								
 									);
@@ -78,9 +73,7 @@ class Request_rute extends CI_Controller
 	var $editFormTableHeader=array(
 		"Id Lokasi",
 		"Kendaraan",
-		"Lokasi",
-		"Latitude",
-		"Longitude",
+		"Tempat Tujuan",
 		"Tanggal"
 		);
 	
@@ -205,8 +198,7 @@ class Request_rute extends CI_Controller
 		}
 		// BUAT COMBO BOX
 		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(nama_kendaraan,' (',nomor_kendaraan,') ','- ',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
-		 $lat=null;
-		 $lng=null;
+
 		 // $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
 		
 		
@@ -214,8 +206,7 @@ class Request_rute extends CI_Controller
 								"<input type='text' class='form-control' id='txtIdLokasi' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
 								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
-								"<input type='text' class='form-control' id='lat' name=txt[] value='".$lat."' required placeholder='Max. 20 karakter' maxlength='20'>",
-								"<input type='text' class='form-control' id='lng' name=txt[] value='".$lng."' required placeholder='Max. 20 karakter' maxlength='20'>",
+
 								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[] autocomplate=off readonly>"
 								
 								);
