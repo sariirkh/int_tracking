@@ -36,6 +36,7 @@ class Request_rute extends CI_Controller
 						a.id_lokasi,
 						concat(b.nama_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
 						a.nama_lokasi,
+						a.tanggal,
 						a.waktu
 						";
 	var $primaryKey="id_lokasi";
@@ -54,7 +55,8 @@ class Request_rute extends CI_Controller
 									"Id Lokasi",
 									"Kendaraan",
 									"Tempat Tujuan",
-									"Tanggal"
+									"Tanggal",
+									"Waktu"
 									);
 	
 	//save
@@ -63,8 +65,8 @@ class Request_rute extends CI_Controller
 									"Id Lokasi",
 									"Kendaraan",
 									"Tempat Tujuan",
-									
-									"Tanggal"
+									"Tanggal",
+									"Waktu"
 								
 									);
 	
@@ -74,7 +76,8 @@ class Request_rute extends CI_Controller
 		"Id Lokasi",
 		"Kendaraan",
 		"Tempat Tujuan",
-		"Tanggal"
+		"Tanggal",
+		"Waktu"
 		);
 	
 	/*	
@@ -198,7 +201,7 @@ class Request_rute extends CI_Controller
 		}
 		// BUAT COMBO BOX
 		 $cboKendaraan=$this->fn->createCbofromDb("tb_kendaraan","id_kendaraan as id, concat(nama_kendaraan,' (',nomor_kendaraan,') ','- ',pengguna_kendaraan) as nm","",$txtVal[1],"","txt[]");
-
+		
 		 // $cboBlood=$this->fn->createCbo(array('A','B','O','AB','-'),array('A','B','O','AB','-'),$txtVal[29]);
 		
 		
@@ -207,7 +210,8 @@ class Request_rute extends CI_Controller
 								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
 
-								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[] autocomplate=off readonly>"
+								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[] autocomplate=off readonly>",
+								"<input type='text' class='form-control   tp'' name=txt[] autocomplate=off readonly>"
 								
 								);
 		

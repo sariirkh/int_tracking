@@ -88,7 +88,10 @@
 </div>
        </div>
 
-       <div id="mapid" style="width: 100%; height: 500px;" ></div>
+<?php 
+  $this->load->view('map/index');
+?>
+       <!-- <div id="mapid" style="width: 100%; height: 500px;" ></div>
 <style>
 #map{ margin: 0 auto 0 auto;
   height: 90%;
@@ -142,4 +145,4 @@
 
 	mymap.on('click', onMapClick);
 
-</script>
+</script> -->

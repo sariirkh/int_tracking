@@ -6,7 +6,7 @@
  
 <style>
 #map { height: 500px;
-    width: 500px; 
+    width: 1275px; 
     }
 </style>
 <div id="map"></div>
