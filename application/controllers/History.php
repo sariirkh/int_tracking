@@ -38,7 +38,7 @@ class History extends CI_Controller
 						concat(c.nama_kendaraan,' (',c.nomor_kendaraan,') ','- ',c.pengguna_kendaraan),
 						c.foto,
 						b.nama_lokasi,
-						a.jarak_now,
+						a.jarak_tempuh,
 						a.status
 						";
 	var $primaryKey="id_riwayat";
