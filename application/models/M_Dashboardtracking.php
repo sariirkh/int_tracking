@@ -1,14 +1,14 @@
 <?php
 class M_Dashboardtracking extends CI_Model{
     
-    function getAll(){
-        $this->db->select('*');
-        $this->db->from('tb_kendaraan'); 
-        //$this->db->select('*');
-        //$this->db->from('login_admin');
-        $query = $this->db->get();
-        return $query;
-    }
+    // function getAll(){
+    //     $this->db->select('*');
+    //     $this->db->from('tb_kendaraan'); 
+    //     //$this->db->select('*');
+    //     //$this->db->from('login_admin');
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
 
     function tampil_kendaraan(){
         $this->db->select('*');
