@@ -9,6 +9,13 @@ class M_Dashboardtracking extends CI_Model{
     //     $query = $this->db->get();
     //     return $query;
     // }
+    function tampil_marker(){
+        $this->db->select('*');
+        $this->db->from('tb_riwayat');
+        $this->db->where('lat', 'lng');
+        $query = $this->db->get();
+        return $query;
+    }
 
     function tampil_kendaraan(){
         $this->db->select('*');

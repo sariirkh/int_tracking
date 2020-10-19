@@ -21,7 +21,7 @@ class Detailhistory extends CI_Controller
 		$this->load->model('Mmain');
 		
 		$this->fn->getheader();	
-		$this->load->view('map/mapdetailhistory');
+		$this->load->view('map/cobamap');
 		$this->fn->getfooter();
 
 	
