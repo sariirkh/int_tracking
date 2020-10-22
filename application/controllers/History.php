@@ -34,7 +34,7 @@ class History extends CI_Controller
 	//var $fieldQuery=" a.code_frm as code,a.id_frm as id,a.desc_frm as nm,b.nm_frmgroup as grp, a.is_shortcut as sc, a.stat_frm as st, a.sort_order"; //leave blank to show all field
 	var $fieldQuery="
 						a.id_riwayat,
-						a.waktu,
+						concat(a.r_tanggal,' ',a.r_waktu),
 						concat(c.nama_kendaraan,' (',c.nomor_kendaraan,') ','- ',c.pengguna_kendaraan),
 						c.foto,
 						b.nama_lokasi,
@@ -55,7 +55,7 @@ class History extends CI_Controller
 	var $viewFormTitle="Daftar Riwayat Lokasi";
 	var $viewFormTableHeader=array(
 									"Id Riwayat",
-									"Waktu",
+									"Tanggal, Jam",
 									"Kendaraan",
 									"Foto",
                                     "Lokasi Awal",

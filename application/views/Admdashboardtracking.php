@@ -1,318 +1,280 @@
-       <!-- Begin Page Content -->
-       <div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-</div>
-
-<!-- Content Row -->
-<div class="row">
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kendaraan</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="Kendaraan" ><?php echo $kendaraan; ?>   </div>
-          </div></a> 
-          <div class="col-auto">
-            <i class="fas fa fa-truck fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Request Rute</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="Request_rute"><?php echo $lokasi; ?></div>
-          </div></a>
-          <div class="col-auto">
-            <i class="fas fa fa-map-marker fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+       <!-- Content Wrapper. Contains page content -->
   
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">History</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="History"><?php echo $riwayat; ?></div>
-          </div></a>
-          <div class="col-auto">
-            <i class="fas fa fa-chart-area fa-2x text-gray-300"></i>
+    <!-- Content Header (Page header) -->
+    <div class="container-fluid">
+        <div class="row ">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard Tracking</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $kendaraan; ?></h3>
+
+                <p>Kendaraan</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-model-s"></i>
+              </div>
+              <a href="kendaraan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $lokasi; ?></h3>
 
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pengguna</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="Request_rute"><?php echo $pengguna_kendaraan; ?></div>
-          </div></a>
-          <div class="col-auto">
-            <i class="fas fa fa-users fa-2x text-gray-300"></i>
+                <p>Request Rute</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-pin"></i>
+              </div>
+              <a href="request_rute" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
           </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $riwayat; ?></h3>
+
+                <p>History Lokasi</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-time"></i>
+              </div>
+              <a href="history" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?php echo $pengguna_kendaraan; ?></h3>
+
+                <p>Pengguna</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-people"></i>
+              </div>
+              <a href="kendaraan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- /.row -->
+      
 
+       <!-- Main row -->
+       <div class="row">
+          <!-- Left col -->
+          <div class="col-md-12">
+            <!-- MAP & BOX PANE -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">History Kendaraan</h3>
 
-<?php 
- // echo base_url('Dashboardtracking/map');
-  //$this->load->view('map/cobamap');
-?>
-<div>
-      <html>
-<head>
-<!-- leaflet map -->
-<link rel="stylesheet" href="<?= base_url(); ?>/assets/leaflet/leaflet.css" />
-<script src="<?= base_url(); ?>/assets/leaflet/leaflet.js"></script>
- 
-<style>
-#map { height: 500px;
-    width: 1275px; 
-    }
-    .address { cursor:pointer }
-.address:hover { color:#AA0000;text-decoration:underline }
-</style>
-<div id="map"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="d-md-flex">
+                  <link rel="stylesheet" href="<?= base_url(); ?>/assets/leaflet/leaflet.css" />
+                  <script src="<?= base_url(); ?>/assets/leaflet/leaflet.js"></script>
+                  
+                  <style>
+                  #map { height: 500px;
+                      width: 100%; 
+                      }
+                      .address { cursor:pointer }
+                  .address:hover { color:#AA0000;text-decoration:underline }
+                  </style>
+                  <div id="map"></div>
 
- 
-<script>
-    //lat, long
-    var map = L.map('map').setView([-8.203184,113.571038], 13);
+                  
+                  <script>
+                      //lat, long
+                      var map = L.map('map').setView([-8.203184,113.571038], 13);
 
-    
-    L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-          maxZoom: 17,
-          minZoom: 9   
-    }).addTo(map);
- 
-    // bike lanes
-    L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
-        maxZoom: 17,
-        minZoom: 9
-    }).addTo(map);
- 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-          maxZoom: 17,
-          minZoom: 9   
-    }).addTo(map);
-    
-     
-    // needed token
-    ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
-    ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN, {
-        attribution: 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        id: 'mapbox.streets'
-    }).addTo(map); 
+                      
+                      L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
+                          attribution: '© OpenStreetMap contributors',
+                            maxZoom: 17,
+                            minZoom: 9   
+                      }).addTo(map);
+                  
+                      // bike lanes
+                      L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
+                          maxZoom: 17,
+                          minZoom: 9
+                      }).addTo(map);
+                  
+                      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                          attribution: '© OpenStreetMap contributors',
+                            maxZoom: 17,
+                            minZoom: 9   
+                      }).addTo(map);
+                      
+                      
+                      // needed token
+                      ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+                      ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+                      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN, {
+                          attribution: 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                          id: 'mapbox.streets'
+                      }).addTo(map); 
 
-    //buat titik lokasi
-    // var marker = L.marker([-8.203184,113.571038]).addTo(map);
-    // marker.bindPopup('<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154');
+                      //buat titik lokasi
+                      // var marker = L.marker([-8.203184,113.571038]).addTo(map);
+                      // marker.bindPopup('<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154');
 
-    L.marker([-8.203184,113.571038]).addTo(map)
-		.bindPopup("<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154</b>")
-    .openPopup();
+                      L.marker([-8.203184,113.571038]).addTo(map)
+                      .bindPopup("<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154</b>")
+                      .openPopup();
 
-    var popup = L.popup();
-	function onMapClick(e) {
-		popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(mymap);
-	}
-	mymap.on('click', onMapClick);
+                      var popup = L.popup();
+                    function onMapClick(e) {
+                      popup
+                        .setLatLng(e.latlng)
+                        .setContent("You clicked the map at " + e.latlng.toString())
+                        .openOn(mymap);
+                    }
+                    mymap.on('click', onMapClick);
 
-  map.on('draw:created', function (e) {
-            layer = e.layer;
-            var lat = layer.getLatLng().lat;
-            var lng = layer.getLatLng().lng;
+                    map.on('draw:created', function (e) {
+                              layer = e.layer;
+                              var lat = layer.getLatLng().lat;
+                              var lng = layer.getLatLng().lng;
 
-            if (e.layerType === '-8.203184,113.571038') {
-                //layer.bindPopup('A popup!');
-            }
-        });
-    // Create an Empty Popup
-    // var popup = L.popup();
-    // // .setLatLng([-8.203184,113.571038])
-    // // .setContent("I am a standalone popup.")
-    // // .openOn(mymap);
+                              if (e.layerType === '-8.203184,113.571038') {
+                                  //layer.bindPopup('A popup!');
+                              }
+                          });
+                    
+                  </script>
 
-    // // Write function to set Properties of the Popup
-    // function onMapClick(e) {
-    //     popup
-    //     .setLatLng(e.latlng)
-    //     .setContent("You clicked the map at " + e.latlng.toString())
-    //     .openOn(map);
-    // }
-
-    // // // Listen for a click event on the Map element
-    // map.on('click', onMapClick);
-    //buat ambil lat, long
-    // map.on('click', function (e) {
-    //     alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
-    // });
-
-    // function putDraggable() {
-    //     draggableMarker = L.marker([ map.getCenter().lat, map.getCenter().lng], {draggable:true, zIndexOffset:900}).addTo(map);
-    //     draggableMarker.on('dragend', function(e) {
-    //         $("#lat").val(this.getLatLng().lat);
-    //         $("#lng").val(this.getLatLng().lng);
-
-    //     });
-
-    // }
-
-    // $( document ).ready(function() {
-    //     putDraggable();
-
-    // });
-    
-    // function onLocationFound(e) {
-    //      var radius = e.accuracy / 2;
-    //      var location = e.latlng
-    //      L.marker(location).addTo(map)
-    //      L.circle(location, radius).addTo(map);
-    //   }
-
-    //   function onLocationError(e) {
-    //      alert(e.message);
-    //   }
-
-    //   function getLocationLeaflet() {
-    //      map.on('locationfound', onLocationFound);
-    //      map.on('locationerror', onLocationError);
-
-    //      map.locate({setView: true, maxZoom: 16});
-    //   }
-
-//       var startlat = 40.75637123;
-// var startlon = -73.98545321;
-
-// var options = {
-//  center: [startlat, startlon],
-//  zoom: 9
-// }
-
-//       document.getElementById('lat').value = startlat;
-// document.getElementById('lon').value = startlon;
-
-// var map = L.map('map', options);
-// var nzoom = 12;
-
-// L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OSM'}).addTo(map);
-
-// var myMarker = L.marker([startlat, startlon], {title: "Coordinates", alt: "Coordinates", draggable: true}).addTo(map).on('dragend', function() {
-//  var lat = myMarker.getLatLng().lat.toFixed(8);
-//  var lon = myMarker.getLatLng().lng.toFixed(8);
-//  var czoom = map.getZoom();
-//  if(czoom < 18) { nzoom = czoom + 2; }
-//  if(nzoom > 18) { nzoom = 18; }
-//  if(czoom != 18) { map.setView([lat,lon], nzoom); } else { map.setView([lat,lon]); }
-//  document.getElementById('lat').value = lat;
-//  document.getElementById('lon').value = lon;
-//  myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-// });
-
-//       function chooseAddr(lat1, lng1)
-// {
-//  myMarker.closePopup();
-//  map.setView([lat1, lng1],18);
-//  myMarker.setLatLng([lat1, lng1]);
-//  lat = lat1.toFixed(8);
-//  lon = lng1.toFixed(8);
-//  document.getElementById('lat').value = lat;
-//  document.getElementById('lon').value = lon;
-//  myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-// }
-
-// function myFunction(arr)
-// {
-//  var out = "<br />";
-//  var i;
-
-//  if(arr.length > 0)
-//  {
-//   for(i = 0; i < arr.length; i++)
-//   {
-//    out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
-//   }
-//   document.getElementById('results').innerHTML = out;
-//  }
-//  else
-//  {
-//   document.getElementById('results').innerHTML = "Sorry, no results...";
-//  }
-
-// }
-
-// function addr_search()
-// {
-//  var inp = document.getElementById("addr");
-//  var xmlhttp = new XMLHttpRequest();
-//  var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-//  xmlhttp.onreadystatechange = function()
-//  {
-//    if (this.readyState == 4 && this.status == 200)
-//    {
-//     var myArr = JSON.parse(this.responseText);
-//     myFunction(myArr);
-//    }
-//  };
-//  xmlhttp.open("GET", url, true);
-//  xmlhttp.send();
-// }
-</script>
-</head>
-<body onLoad="javascript:init();">
-<!-- <div class="container">
-
-<b>Coordinates</b>
-<form>
-<input type="text" name="lat" id="lat" size=12 value="">
-<input type="text" name="lon" id="lon" size=12 value="">
-</form>
-
-<b>Address Lookup</b>
-<div id="search">
-<input type="text" name="addr" value="" id="addr" size="58" />
-<button type="button" onclick="addr_search();">Search</button>
-<div id="results"></div>
-</div> -->
-   <!-- <input type="button" value="Locate me!" onClick="javascript:getLocationLeaflet();"> -->
-   
-</body>
-</html>
-  
-</div>
-
-
-</div>
+                </div><!-- /.d-md-flex -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
        </div>
+            <!-- /.card -->
+
+      
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+      <div class="col-6">
+     
+     <!-- PIE CHART -->
+     <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Kendaraan yang dipakai</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="pieChartJenis" style="height:230px; min-height:230px"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+              </div>
+              <!-- /.footer -->
+            
+      
+            <!-- /.card -->
+      
+
+       <div class="col-6">
+      <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">History Lokasi Terakhir</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">No</th>
+                      <th>Nama Kendaraan</th>
+                      <th>Lokasi</th>
+                      <th style="width: 40px">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php $no =1;
+                  foreach($tempat as $baris){
+                  ?>
+                  <tr>
+                    <td><?php echo $no++;?></td>
+                    <td><?php echo $baris->jenis_kendaraan?> - <?php echo $baris->nama_kendaraan?> ( <?php echo $baris->nomor_kendaraan?> )</td>
+                    <td><?php echo $baris->nama_lokasi?></td>
+                    <td>
+                    <?php            
+                    if($baris->status=='di jalan'){
+                    ?>
+                      <a>Sedang di jalan</a>
+                    <?php
+                    } 
+                    else{
+                      echo "Sudah sampai";
+                    ?>
+                    <?php
+                    }?>
+                    </td>
+                  </tr>
+                      <?php }?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+       </div>
+      </div>
+                        
+        </div>
+        
+      
+
+     
+          
+     
+    </section>
+                        </div>
+                        
+  
+ 
