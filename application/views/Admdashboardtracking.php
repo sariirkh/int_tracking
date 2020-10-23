@@ -206,6 +206,9 @@
                 </div>
               </div>
               <div class="card-body">
+              <div>
+              <h5 align="center"> Kendaraan terakhir yang dipakai </h5>  
+              </div>
                 <canvas id="pieChartJenis" style="height:230px; min-height:230px"></canvas>
               </div>
               <!-- /.card-body -->

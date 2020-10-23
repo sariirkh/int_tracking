@@ -36,8 +36,6 @@ class Request_rute extends CI_Controller
 						a.id_lokasi,
 						concat(b.nama_kendaraan,' (',b.nomor_kendaraan,') ','- ',b.pengguna_kendaraan),
 						a.nama_lokasi,
-						a.lat,
-						a.lng,
 						a.tanggal,
 						a.waktu
 						";

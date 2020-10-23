@@ -39,14 +39,16 @@ class Dashboardtracking extends CI_Controller
 		
 		$this->load->database();
 		$this->load->model('Mmain');
+		//$tgl=date("Y-m-d") WHERE r_tanggal='$tgl';
 		$retVal= "";
 		
 		$render = $this->Mmain->qRead("
 								tb_lokasi a 
 								INNER JOIN tb_kendaraan b ON a.id_kendaraan = b.id_kendaraan 
-								GROUP BY b.jenis_kendaraan
+								GROUP BY b.nama_kendaraan
+								ORDER BY a.tanggal DESC
 								",
-							"b.jenis_kendaraan as nama,COUNT(b.jenis_kendaraan) as jum");
+							"b.nama_kendaraan as nama,COUNT(b.nama_kendaraan) as jum");
 
 		if($render->num_rows() > 0 )
 		{
