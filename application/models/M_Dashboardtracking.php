@@ -79,7 +79,7 @@ class M_Dashboardtracking extends CI_Model{
         // $this->db->join('tb_lokasi', 'tb_riwayat.id_riwayat=tb_lokasi.id_lokasi');
         // $this->db->join('tb_kendaraan', 'tb_riwayat.id_riwayat=tb_kendaraan.id_kendaraan');
         // //$this->db->where("tb_riwayat", $id_riwayat );
-        $query = $this->db->get();
+        //$query = $this->db->get('tb_riwayat');
         return $query;
 	}
 
