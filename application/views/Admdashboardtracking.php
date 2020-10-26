@@ -225,6 +225,11 @@
       <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">History Lokasi Terakhir</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -278,11 +283,17 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">
-            <div class="card">
+            <div class="card card-orange">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Data Request Dalam 1 Tahun</h3>
+                  
+                  <div class="card-tools">
                   <a href="Request_rute">View Report</a>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
                 </div>
               </div>
               <div class="card-body">
