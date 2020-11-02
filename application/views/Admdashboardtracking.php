@@ -155,10 +155,16 @@
                       //buat titik lokasi
                       // var marker = L.marker([-8.203184,113.571038]).addTo(map);
                       // marker.bindPopup('<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154');
+                      
+                      <?php foreach ($marker as $key =>  $value) { ?>
+                        L.marker([<?= $value['lat'] ?>, <?= $value['lng'] ?>])
+                        .bindPopup("<h5><b>Lokasi : <?= $value['nama_lokasi'] ?> </b></h5>")
+                        .addTo(map);
+                      <?php } ?>
 
-                      L.marker([-8.203184,113.571038]).addTo(map)
-                      .bindPopup("<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154</b>")
-                      .openPopup();
+                      // L.marker([-8.203184,113.571038]).addTo(map)
+                      // .bindPopup("<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154</b>")
+                      // .openPopup();
 
                       var popup = L.popup();
                     function onMapClick(e) {

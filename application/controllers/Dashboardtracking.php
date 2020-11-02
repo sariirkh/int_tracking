@@ -25,6 +25,7 @@ class Dashboardtracking extends CI_Controller
         $data['riwayat'] = $this->M_Dashboardtracking->jum_update();
 		$data['pengguna_kendaraan'] = $this->M_Dashboardtracking->jum_pengguna();
 		$data['tempat'] = $this->M_Dashboardtracking->getHistory()->result();
+		$data['marker'] = $this->M_Dashboardtracking->getHistory()->result_array();
 		$this->load->view('Admdashboardtracking', $data);
         $this->fn->getfooter();
         

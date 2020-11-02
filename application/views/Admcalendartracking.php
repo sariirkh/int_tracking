@@ -92,7 +92,7 @@
 <!-- ./wrapper -->
 
 <!-- Page specific script -->
-<script>
+<!-- <script>
   $(function () {
 
     /* initialize the external events
@@ -259,4 +259,4 @@
       $('#new-event').val('')
     })
   })
-</script>
+</script> -->
