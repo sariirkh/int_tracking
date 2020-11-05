@@ -60,6 +60,8 @@
 	
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/datepicker.css" type="text/css"> 
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/clockpicker.css" type="text/css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
+  
 	<!--
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
