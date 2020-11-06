@@ -29,7 +29,7 @@
 					<form  id="formfield" enctype="multipart/form-data" data-toggle="validator" role="form" method="POST" action="<?= site_url();?><?= $saveLink;?>" >
 					
                 <div class="card-body">
-				<div class="col-md-5">
+				<div class="col-md-12">
 					<?php
 					if(!empty($formLabel))
 					{

@@ -190,7 +190,7 @@
 									<i class="fa fa-trash fa-fw text-red"></i>
 								</a>
 
-								<a  data-target="detail" title="detail" href="detailhistory" name="<?= $pid;?>" class="detail">
+								<a  data-target="detail" title="detail" href="detailhistory/show/<?= $pid;?>" name="<?= $pid;?>" class="detail">
 									<i class>detail</i>
 								</a>
 								<?php
