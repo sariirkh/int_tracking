@@ -107,86 +107,57 @@
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <div class="d-md-flex">
-                  <link rel="stylesheet" href="<?= base_url(); ?>/assets/leaflet/leaflet.css" />
-                  <script src="<?= base_url(); ?>/assets/leaflet/leaflet.js"></script>
-                  
-                  <style>
-                  #map { height: 500px;
-                      width: 100%; 
-                      }
-                      .address { cursor:pointer }
-                  .address:hover { color:#AA0000;text-decoration:underline }
-                  </style>
-                  <div id="map"></div>
+                <div id="googleMap" style="width:100%;height:500px;"></div>
 
-                  
-                  <script>
-                      //lat, long
-                      var map = L.map('map').setView([-8.203184,113.571038], 13);
-
-                      
-                      L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-                          attribution: '© OpenStreetMap contributors',
-                            maxZoom: 17,
-                            minZoom: 9   
-                      }).addTo(map);
-                  
-                      // bike lanes
-                      L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
-                          maxZoom: 17,
-                          minZoom: 9
-                      }).addTo(map);
-                  
-                      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                          attribution: '© OpenStreetMap contributors',
-                            maxZoom: 17,
-                            minZoom: 9   
-                      }).addTo(map);
-                      
-                      
-                      // needed token
-                      ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
-                      ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-                      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN, {
-                          attribution: 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                          id: 'mapbox.streets'
-                      }).addTo(map); 
-
-                      //buat titik lokasi
-                      // var marker = L.marker([-8.203184,113.571038]).addTo(map);
-                      // marker.bindPopup('<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154');
-                      
-                      <?php foreach ($marker as $key =>  $value) { ?>
-                        L.marker([<?= $value['lat'] ?>, <?= $value['lng'] ?>])
-                        .bindPopup("<h5><b>Lokasi : <?= $value['nama_lokasi'] ?> </b></h5>")
-                        .addTo(map);
-                      <?php } ?>
-
-                      // L.marker([-8.203184,113.571038]).addTo(map)
-                      // .bindPopup("<b>PT. Mangli Djaya Raya</b><br>JL Mayjend DI Panjaitan No.99, Krajan, Petung, Kec. Bangsalsari, Kabupaten Jember, Jawa Timur 68154</b>")
-                      // .openPopup();
-
-                      var popup = L.popup();
-                    function onMapClick(e) {
-                      popup
-                        .setLatLng(e.latlng)
-                        .setContent("You clicked the map at " + e.latlng.toString())
-                        .openOn(mymap);
-                    }
-                    mymap.on('click', onMapClick);
-
-                    map.on('draw:created', function (e) {
-                              layer = e.layer;
-                              var lat = layer.getLatLng().lat;
-                              var lng = layer.getLatLng().lng;
-
-                              if (e.layerType === '-8.203184,113.571038') {
-                                  //layer.bindPopup('A popup!');
-                              }
-                          });
+                <script src="<?php echo base_url();?>assets/landing/plugins/jquery/jquery.min.js"></script>
+                <script src="<?php echo base_url();?>assets/landing/plugins/jquery-ui/jquery-ui.min.js"></script>
+                <script>
+                function myMap() {
                     
-                  </script>
+                const myLatLng = { lat: -8.203184, lng: 113.571038 };
 
+
+                var mapProp= {
+                  center:myLatLng,
+                  zoom:13,
+                };
+                var id_riwayat = $("#id_riwayat").val();
+                $.ajax({
+                  url : "<?= site_url();?>dashboardtracking/ambilMarker/"+id_riwayat,
+                  success : function(s)
+                  {
+                    var d = s.split("|");
+                    for(var i =0; i< d.length-1 ; i++)
+                    {
+                      var a = d[i].split("~");
+                      new google.maps.Marker({
+                          position: {lat : parseFloat(a[1]) , lng : parseFloat(a[2])},
+                          map,
+                          title: a[0]
+                        });
+                      // alert(a[1]);
+                    }
+
+                  }
+
+                });
+
+
+                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+
+
+                // Menampilkan informasi pada masing-masing marker yang diklik
+                function bindInfoWindow(marker, map, infoWindow, html) {
+                  google.maps.event.addListener(marker, 'click', function() {
+                    infoWindow.setContent(html);
+                    infoWindow.open(map, marker);
+                  });
+                }
+                }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARdVcREeBK44lIWnv5-iPijKqvlSAVwbw&callback=myMap"></script>
                 </div><!-- /.d-md-flex -->
               </div>
               <!-- /.card-body -->

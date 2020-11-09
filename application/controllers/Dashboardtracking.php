@@ -15,6 +15,27 @@ class Dashboardtracking extends CI_Controller
 	/*	
 		====================================================== Variable Declaration =========================================================
 	*/
+
+	public function ambilMarker(){
+		
+		$this->load->database();
+		$this->load->model('Mmain');
+		$retVal = "";
+		
+		$markerList = $this->Mmain->qRead("	tb_riwayat a 
+											INNER JOIN tb_lokasi b ON a.id_lokasi = b.id_lokasi ",
+											"b.nama_lokasi as nm,a.lat, a.lng, a.status ", "");
+		if($markerList->num_rows() > 0 )
+		{
+			foreach($markerList->result() as $row)
+			{
+				$retVal .= $row->nm . "~" . $row->lat . "~" . $row->lng  . "~" . $row->status . "|" ;
+			}
+		}
+
+		echo $retVal;	
+	}
+
 	public function index()
 	{
 		//init modal
