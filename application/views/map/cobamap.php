@@ -18,10 +18,9 @@ var mapProp= {
   center:myLatLng,
   zoom:17,
 };
-
 var id_riwayat = $("#id_riwayat").val();
 $.ajax({
-  url : "<?= site_url();?>detailhistory/ambilMarker/" + id_riwayat,
+  url : "<?= site_url();?>detailhistory/ambilMarker/"+id_riwayat,
   success : function(s)
   {
     var d = s.split("|");
