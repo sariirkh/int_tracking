@@ -33,12 +33,31 @@ class Detailhistory extends CI_Controller
         foreach ($data['marker'] as $key =>  $value) { 
 		//echo $value['lat']."<br>";
 		}
-		$this->load->view('map/mapdetailhistory',$data);
+		$data["id_riwayat"] = $id_riwayat;
+		$this->load->view('map/cobamap',$data);
 		$this->fn->getfooter();
 
+	}
 	
+	public function ambilMarker($id_riwayat){
 		
-    }
+		$this->load->database();
+		$this->load->model('Mmain');
+		$retVal = "";
+		
+		$markerList = $this->Mmain->qRead("	tb_riwayat a 
+											INNER JOIN tb_lokasi b ON a.id_lokasi = b.id_lokasi WHERE a.id_riwayat = '".$id_riwayat."' ",
+											"b.nama_lokasi as nm,a.lat, a.lng, a.status ", "");
+		if($markerList->num_rows() > 0 )
+		{
+			foreach($markerList->result() as $row)
+			{
+				$retVal .= $row->nm . "~" . $row->lat . "~" . $row->lng  . "~" . $row->status . "|" ;
+			}
+		}
+
+		echo $retVal;	
+	}
     
 }
 ?>
