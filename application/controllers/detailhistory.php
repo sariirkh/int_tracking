@@ -34,7 +34,7 @@ class Detailhistory extends CI_Controller
 		//echo $value['lat']."<br>";
 		}
 		$data["id_riwayat"] = $id_riwayat;
-		$this->load->view('map/cobamap',$data);
+		$this->load->view('map/mapdetailhistory',$data);
 		$this->fn->getfooter();
 
 	}
