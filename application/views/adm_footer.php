@@ -692,80 +692,91 @@ $.ajax({
 	
 }
 </script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-	
-	
 
-	 <script type="text/javascript">
-	// alert();
-	 try
-	 {
-		 var kegiatan = [];
-		 
-		// kegiatan[0] = { "title"  : 'event1', "start"  : '2019-02-01' , "end" : "2019-02-05"};
-		// kegiatan[1] = { "title"  : 'event2', "start"  : '2019-02-03'};
-		 
-		 
-		 $.ajax({
-			url : "<?= site_url();?>Calendartracking/getKegiatan",
-			async : false,
-			success : function(s){
-				//alert(s);
-				if(s != "")
-				{
-					var dt = s.split("++");
-					
-					for(var i=0;i<dt.length;i++)
-					{
-						if(dt[i] != "")
-						{
-							var detail = dt[i].split("||");
-							//alert(detail);
-								kegiatan[i] = { "title"  : detail[0],
-											 "start"  : detail[1] , 
-											 "end" : detail[1] ,
-											  "description" : detail[2]};
-							
-						}
-					}
-				}
-				
-			}
-		 });
-		 
-		 $('#calendar').fullCalendar({
-			 weekNumbers:true,
-			selectable: true,
-			header: {
-			  left: 'prev,next today',
-			  center: 'title',
-			  right: 'month,agendaWeek,agendaDay'
-			},
-			dayClick: function(date) {
-			  //alert('clicked ' + date.format());
-			},
-			select: function(startDate, endDate) {
-			  //alert('selected ' + startDate.format() + ' to ' + endDate.format());
-			},
-			eventRender: function(eventObj, $el) {
-			  $el.popover({
-				title: eventObj.title,
-				content: eventObj.description,
-				trigger: 'click',
-				placement: 'top',
-				container: 'body'
-			  });
-			},
-			 events: kegiatan
-		  });
+<!-- script calendar tracking -->
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script type="text/javascript">
+// alert();
+try
+{
+	var kegiatan = [];
+	
+// kegiatan[0] = { "title"  : 'event1', "start"  : '2019-02-01' , "end" : "2019-02-05"};
+// kegiatan[1] = { "title"  : 'event2', "start"  : '2019-02-03'};
+	
+	
+	$.ajax({
+	url : "<?= site_url();?>Calendartracking/getKegiatan",
+	async : false,
+	success : function(s){
+		//alert(s);
+		if(s != "")
+		{
+			var dt = s.split("++");
 			
-	 }
-	 catch(e)
-	 {
-		 alert(e.message);
-	 }
-	 </script>
+			for(var i=0;i<dt.length;i++)
+			{
+				if(dt[i] != "")
+				{
+					var detail = dt[i].split("||");
+					//alert(detail);
+						kegiatan[i] = { "title"  : detail[0],
+										"start"  : detail[1] , 
+										"end" : detail[1] ,
+										"description" : detail[2]};
+					
+				}
+			}
+		}
+		
+	}
+	});
+	
+	$('#calendar').fullCalendar({
+		weekNumbers:true,
+	selectable: true,
+	header: {
+		left: 'prev,next today',
+		center: 'title',
+		right: 'month,agendaWeek,agendaDay'
+	},
+	dayClick: function(date) {
+		//alert('clicked ' + date.format());
+	},
+	select: function(startDate, endDate) {
+		//alert('selected ' + startDate.format() + ' to ' + endDate.format());
+	},
+	eventRender: function(eventObj, $el) {
+		$el.popover({
+		title: eventObj.title,
+		content: eventObj.description,
+		trigger: 'click',
+		placement: 'top',
+		container: 'body'
+		});
+	},
+		events: kegiatan
+	});
+	
+}
+catch(e)
+{
+	alert(e.message);
+}
+</script>
+
+<script type="text/javascript">
+// 1 detik = 1000
+window.setTimeout("waktu()",1000);  
+function waktu() {   
+var tanggal = new Date();  
+setTimeout("waktu()",1000);  
+document.getElementById("jam").innerHTML = tanggal.getHours()+":"+tanggal.getMinutes()+":"+tanggal.getSeconds();
+}
+</script>
+
+
 <!-- <script>
   $(function () {
 

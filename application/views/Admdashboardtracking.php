@@ -93,7 +93,7 @@
             <!-- MAP & BOX PANE -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">History Kendaraan</h3>
+                <h3 class="card-title">History Lokasi Kendaraan</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">

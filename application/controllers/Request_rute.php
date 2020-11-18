@@ -196,7 +196,10 @@ class Request_rute extends CI_Controller
 				
 				//generate id
 				$txtVal[0]=$this->Mmain->autoId($this->mainTable,$this->mainPk,$this->prefix,$this->defaultId,$this->suffix);	
-				
+				$txtVal[3]=date("Y-m-d");
+				date_default_timezone_set('Asia/Jakarta');
+				$txtVal[4]=date("H:i:s a");
+
 	
 		}
 		// BUAT COMBO BOX
@@ -210,8 +213,8 @@ class Request_rute extends CI_Controller
 								$cboKendaraan,
 								"<input type='text' class='form-control' id='txtNamaLokasi' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 70 karakter' maxlength='70'>",
 
-								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[] autocomplate=off readonly>",
-								"<input type='text' class='form-control   tp'' name=txt[] autocomplate=off readonly>"
+								"<input type='text' class='form-control   dtp' data-date-format='yyyy-mm-dd' name=txt[]  value='".$txtVal[3]."' autocomplate=off readonly>",
+								"<input type='text' class='form-control   tp'' name=txt[] value='".$txtVal[4]."' autocomplate=off readonly>"
 								
 								);
 		

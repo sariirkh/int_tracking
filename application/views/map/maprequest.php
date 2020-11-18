@@ -6,6 +6,7 @@
 
 <div id="googleMap" style="width:100%;height:500px;"></div>
 <input type="hidden" id="id_riwayat" value="<?= $id_riwayat;?>">
+ <input id="searchTextField" type="text" size="50">
 <script src="<?php echo base_url();?>assets/landing/plugins/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url();?>assets/landing/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script>
@@ -42,7 +43,12 @@ $.ajax({
 
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
+function initialize() {
+  var input = document.getElementById('searchTextField');
+  new google.maps.places.Autocomplete(input);
+}
 
+google.maps.event.addDomListener(window, 'load', initialize);
 
 // Menampilkan informasi pada masing-masing marker yang diklik
 function bindInfoWindow(marker, map, infoWindow, html) {

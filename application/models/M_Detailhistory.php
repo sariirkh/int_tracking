@@ -27,7 +27,10 @@ class M_Detailhistory extends CI_Model{
         // //$this->db->where("tb_riwayat", $id_riwayat );
         //$query = $this->db->get('tb_riwayat');
         return $query;
-	}
+    }
+    
+    
+
 
   
 }

@@ -48,7 +48,46 @@
 						$i++;
 						}
 						?>
-						
+						<!-- <div id="googleMap" style="width:100%;height:500px;"></div>
+						<input id="searchTextField" type="text" size="50"> -->
+						<!-- <script src="<?php //echo base_url();?>assets/landing/plugins/jquery/jquery.min.js"></script>
+						<script src="<?php //echo base_url();?>assets/landing/plugins/jquery-ui/jquery-ui.min.js"></script>
+						<script>
+						function myMap() {
+							
+						const myLatLng = { lat: -8.203184, lng: 113.571038 };
+
+
+						var mapProp= {
+						center:myLatLng,
+						zoom:13,
+						};
+
+
+						var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+						function initialize() {
+						var input = document.getElementById('searchTextField');
+						new google.maps.places.Autocomplete(input);
+						}
+
+						google.maps.event.addDomListener(window, 'load', initialize);
+
+						// Menampilkan informasi pada masing-masing marker yang diklik
+						function bindInfoWindow(marker, map, infoWindow, html) {
+						google.maps.event.addListener(marker, 'click', function() {
+							infoWindow.setContent(html);
+							infoWindow.open(map, marker);
+						});
+						}
+						}
+						</script>
+
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARdVcREeBK44lIWnv5-iPijKqvlSAVwbw&callback=myMap"></script> -->
+
+						<?php 
+					 	//$this->load->view('map/maprequest'); 
+					  ?>
 					<?php
 					}
 					?>
@@ -61,6 +100,8 @@
 							   <!-- <button  name="btn" id="submitBtn" data-toggle="modal" data-target="#confirm-submit"   class="btn btn-success"  />Submit</button> -->
 						
 					  </div>
+					  
+					  
                 </div><!-- /.box-body -->
 					</form>
 					<div class="card-body">
