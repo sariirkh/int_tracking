@@ -42,8 +42,9 @@ class M_Dashboardtracking extends CI_Model{
         }
     }
 
-    public function jum_request(){   
-        $query = $this->db->get('tb_lokasi');
+    public function jum_request(){  
+        $tgl = date("Y-m-d");
+        $query = $this->db->get("tb_lokasi WHERE Tanggal = '$tgl'");
         if($query->num_rows()>0)
         {
             return $query->num_rows();
@@ -79,9 +80,18 @@ class M_Dashboardtracking extends CI_Model{
         }
     }
 
-    public function getHistory()
+    public function getHistoryLokasi()
 	{
         // $this->db->query("SELECT * FROM tb_riwayat JOIN tb_lokasi JOIN tb_kendaraan ON tb_lokasi.id_lokasi = tb_riwayat.id_lokasi && tb_kendaraan.id_kendaraan=tb_lokasi.id_kendaraan");
+        $query = $this->db->query("SELECT status, jenis_kendaraan, nama_kendaraan, nomor_kendaraan, nama_lokasi, r_waktu, lat, lng FROM tb_riwayat JOIN tb_lokasi USING(id_lokasi) JOIN tb_kendaraan USING(id_kendaraan) ORDER BY id_riwayat DESC LIMIT 10");
+        
+        return $query;
+	}
+
+    public function getHistoryKendaraan()
+	{
+        // $this->db->query("SELECT * FROM tb_riwayat JOIN tb_lokasi JOIN tb_kendaraan ON tb_lokasi.id_lokasi = tb_riwayat.id_lokasi && tb_kendaraan.id_kendaraan=tb_lokasi.id_kendaraan");
+        $tgl = date("Y-m-d");
         $query = $this->db->query("SELECT status, jenis_kendaraan, nama_kendaraan, nomor_kendaraan, nama_lokasi, r_waktu, lat, lng FROM tb_riwayat JOIN tb_lokasi USING(id_lokasi) JOIN tb_kendaraan USING(id_kendaraan) ORDER BY id_riwayat DESC");
         // $this->db->select('*');
         // $this->db->from('tb_riwayat');
@@ -91,7 +101,6 @@ class M_Dashboardtracking extends CI_Model{
         //$query = $this->db->get('tb_riwayat');
         return $query;
 	}
-
     /*function tampil_request(){
         $this->db->select('*');
         $this->db->from('lokasi');

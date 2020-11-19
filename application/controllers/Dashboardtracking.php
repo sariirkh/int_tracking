@@ -45,8 +45,8 @@ class Dashboardtracking extends CI_Controller
         $data['lokasi'] = $this->M_Dashboardtracking->jum_request();
         $data['riwayat'] = $this->M_Dashboardtracking->jum_update();
 		$data['pengguna_kendaraan'] = $this->M_Dashboardtracking->jum_pengguna();
-		$data['tempat'] = $this->M_Dashboardtracking->getHistory()->result();
-		$data['marker'] = $this->M_Dashboardtracking->getHistory()->result_array();
+		$data['tempat'] = $this->M_Dashboardtracking->getHistoryLokasi()->result();
+		$data['marker'] = $this->M_Dashboardtracking->getHistoryKendaraan()->result_array();
 		$this->load->view('Admdashboardtracking', $data);
         $this->fn->getfooter();
         
@@ -63,10 +63,11 @@ class Dashboardtracking extends CI_Controller
 		$this->load->model('Mmain');
 		//$tgl=date("Y-m-d") WHERE r_tanggal='$tgl';
 		$retVal= "";
-		
+		$tgl = date("Y-m-d");
 		$render = $this->Mmain->qRead("
 								tb_lokasi a 
 								INNER JOIN tb_kendaraan b ON a.id_kendaraan = b.id_kendaraan 
+								WHERE tanggal = '$tgl'
 								GROUP BY b.nama_kendaraan
 								ORDER BY a.tanggal DESC
 								",
