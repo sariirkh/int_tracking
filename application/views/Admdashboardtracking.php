@@ -158,7 +158,7 @@
                     
                     <?php foreach ($marker as $key =>  $value) { ?>
                     L.marker([<?= $value['lat'] ?>, <?= $value['lng'] ?>])
-                    .bindPopup("<h5><b>Lokasi : <?= $value['nama_lokasi'] ?> </b></h5>")
+                    .bindPopup("<h6>Kendaraan : <?= $value['nama_kendaraan']?> <br>  Lokasi : <?= $value['nama_lokasi'] ?></h6>")
                     .addTo(map);
                     <?php } ?>
 

@@ -35,6 +35,7 @@ class Kendaraan extends CI_Controller
 						";
 	var $fieldQuery="
 						id_kendaraan,
+						imei,
 						jenis_kendaraan,
 						nama_kendaraan,
 						merk_kendaraan,
@@ -57,6 +58,7 @@ class Kendaraan extends CI_Controller
 	var $viewFormTitle="Daftar Kendaraan";
 	var $viewFormTableHeader=array(
 									"Id Kendaraan",
+									"Imei Alat",
 									"Jenis Kendaraan",
 									"Nama Kendaraan",
 									"Merk Kendaraan",
@@ -69,6 +71,7 @@ class Kendaraan extends CI_Controller
 	var $saveFormTitle="Tambah Kendaraan";
 	var $saveFormTableHeader=array(
 									"Id Kendaraan",
+									"Imei Alat",
 									"Jenis Kendaraan",
 									"Nama Kendaraan",
 									"Merk Kendaraan",
@@ -189,8 +192,8 @@ class Kendaraan extends CI_Controller
 			}
 		
 			$imgTemp="<h5><i>Click browse to change image</i></h5>
-			<img src='".base_url()."/assets/foto/".$txtVal[6]."' height='200px' width='auto' >
-			<input type='hidden' name='txtimg' value='".$txtVal[6]."'>";	
+			<img src='".base_url()."/assets/foto/".$txtVal[7]."' height='200px' width='auto' >
+			<input type='hidden' name='txtimg' value='".$txtVal[7]."'>";	
 		}
 		else
 		{	
@@ -211,11 +214,12 @@ class Kendaraan extends CI_Controller
 		
 		$output['formTxt']=array(
 								"<input type='text' class='form-control' id='txtIdKendaraan' name=txt[] value='".$txtVal[0]."' required readonly placeholder='Max. 7 karakter' maxlength='7'>",
-								"<input type='text' class='form-control' id='txtJenisKendaraan' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='15'>",
-								"<input type='text' class='form-control' id='txtNamaKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 15 karakter' maxlength='15'>",
-								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 20 karakter' maxlength='20'>",
-								"<input type='text' class='form-control' id='txtNomorKendaraan' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 10 karakter' maxlength='10'>",
-								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[5]."' required placeholder='Max. 70 karakter' maxlength='70'>",
+								"<input type='text' class='form-control' id='txtImeiAlat' name=txt[] value='".$txtVal[1]."' required placeholder='Max. 15 karakter' maxlength='20'>",
+								"<input type='text' class='form-control' id='txtJenisKendaraan' name=txt[] value='".$txtVal[2]."' required placeholder='Max. 15 karakter' maxlength='15'>",
+								"<input type='text' class='form-control' id='txtNamaKendaraan' name=txt[] value='".$txtVal[3]."' required placeholder='Max. 15 karakter' maxlength='15'>",
+								"<input type='text' class='form-control' id='txtMerkKendaraan' name=txt[] value='".$txtVal[4]."' required placeholder='Max. 20 karakter' maxlength='20'>",
+								"<input type='text' class='form-control' id='txtNomorKendaraan' name=txt[] value='".$txtVal[5]."' required placeholder='Max. 10 karakter' maxlength='10'>",
+								"<input type='text' class='form-control' id='txtPengguna' name=txt[] value='".$txtVal[6]."' required placeholder='Max. 70 karakter' maxlength='70'>",
 								$imgTemp."<input type='file' class='form-control fileupload' id='txtid23' name=txtfl >"
 								);
 		
